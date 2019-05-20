@@ -1,4 +1,5 @@
 require './config/environment'
+require 'pry'
 
 class ApplicationController < Sinatra::Base
 
@@ -7,16 +8,22 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
 
-  get "/" do
-    erb :index
+  get '/' do
+  	erb :index
   end
 
-  get '/login' do 
-  	erb :login
+  get '/users/new' do 
+  	erb :'users/new'
   end
 
-  get '/new' do #create new user
-  	erb :new
+  get '/users/signin' do 
+  	erb :'users/signin'
   end
+
+  post '/users' do
+  	@user = User.create(params[:user])
+  	erb :'users/show'
+  end
+
 
 end
