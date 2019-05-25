@@ -17,11 +17,12 @@ class UsersController < ApplicationController
   post '/users' do
   	@user = User.create(params[:user])
   	binding.pry
+
   	erb :'users/show'
   end
 
   post '/login' do # 
-  	#binding.pry
+  	binding.pry
   	@user = User.find_by(params[:id])
   	redirect to "/home"
   end

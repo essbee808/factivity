@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
 	get '/events' do 
-		"Displays a list of upcoming events"
+		# renders page with upcoming events
 		@events = Event.all
 		erb :'events/index'
 	end
