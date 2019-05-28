@@ -36,6 +36,7 @@ class UsersController < ApplicationController
 
   get '/home/:id' do 
   	@user = User.find(params[:id])
+  	@events = Event.all
   	erb :'/users/show'
   end
 

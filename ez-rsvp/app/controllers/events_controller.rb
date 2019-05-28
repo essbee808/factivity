@@ -6,8 +6,14 @@ class EventsController < ApplicationController
 		erb :'events/index'
 	end
 
-	post '/events' do
+	get '/events/new' do
+		erb :'events/new'
+	end
 
+	post '/events' do
+		@event = Event.new(:title => params[:event][:name], :location => params[:event][:location], :event_date => params[:event][:event_date], :start_time => params[:event][:start_time], :end_time => params[:event][:end_time])
+		@event.save
+		redirect to "/events"
 	end
 
 	get '/events/:id/edit' do
