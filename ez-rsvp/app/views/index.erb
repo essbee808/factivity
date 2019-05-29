@@ -1,11 +1,22 @@
 <center><h1>EZ RSVP</h1>
 
 <body>
-	<h3>THIS IS THE ROOT PAGE</h3>
-	<br>
-	<h4>I AM A...<h4>
-	<a href="/login">Client</a>
-	<a href="#">Admin</a>
+	<div>
+		<h3>THIS IS THE ROOT PAGE</h3>
+	</div>
+
+	<div>
+		<form action="/login" method="POST">
+			<label>Email:</label>
+				<input type="email" name="email">
+			<label>Password:</label>
+				<input type="password" name="password">
+		<input type="submit" value="Login">
+		<br>
+		<br>
+		<a href="/register">Create A New Account</a>
+		</form>
+	</div>
 </body>
 
 <footer>
