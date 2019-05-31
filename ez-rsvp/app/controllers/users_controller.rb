@@ -15,12 +15,12 @@ class UsersController < ApplicationController
   end  
 
   post '/register' do # collects login info
-    #binding.pry
+  
   	@user = User.find_by(:email => params[:user][:email])
   	if @user
   		erb :'users/user_exists'
   	else
-  		user = User.create(params[:user])
+  		user = User.create(name: params[:user])
       redirect to "/success"
   	end
   end

@@ -1,11 +1,14 @@
 <head>
-  <link rel="stylesheet" type="text/css" href="../stylesheets/template.css" />
+  <link rel="stylesheet" type="text/css" href="../stylesheets/main.css" />
 </head>
 
-<h3>Welcome, <%= @user.name %>!</h3>
-	<div class="content">
-		 <b>List of Events</b>
-	</div>
- 
+<div id="top">
+	<h3 class="greeting">Welcome, <%= @user.name %>!</h3>
 	<a href="/logout">Logout</a>
+</div>
+
+<div class="content">
+	<h4>List of Events</h4>
+</div>
+ 
 </body>
