@@ -7,19 +7,44 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
-    <title>EZ Rsvp</title>
+    <title>EZ RSVP</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="/stylesheets/main.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/template.css" />
   </head>
   <body>
     <div class="wrapper">
+      <header id="wrap">
+        <div class="wrapper">
+          <div id="branding">
+            <p class="site-desc">Family, Adult & Child Therapies</p>
 
-        <%= yield %>
+          </div>
+          <nav role="navigation">
+            <div class="nav_menu">
+              <ul>
+                <li>WHAT WE DO</li>
+                <li>GIVING</li>
+                <li>CONNECT WITH US</li>
+                <li>LEARNING</li>
+                <li>CURRENT OPENINGS: DSP & BII</li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+         
+     </header>
+
+
+
+      <%= yield %>
+
+
+
 
       <footer class="branding">
-        <small>&copy; 2019 <strong>EZ Rsvp</strong></small>
+        <small>&copy; 2019 <strong>EZ RSVP</strong></small>
       </footer>
     </div>
 

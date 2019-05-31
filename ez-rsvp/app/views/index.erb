@@ -1,16 +1,15 @@
-<center><h1>EZ RSVP</h1>
-
 <body>
-	<div>
-		<h3>THIS IS THE ROOT PAGE</h3>
-	</div>
-
-	<div>
+	<div id="top">
 		<form action="/login" method="POST">
 			<label>Email:</label>
-				<input type="email" name="email">
+				<input type="email" name="email" required>
 			<label>Password:</label>
-				<input type="password" name="password">
+				<input type="password" name="password" required>
+			<select name="user_type">
+				<option value="client" selected>Client</option>
+				<option value="admin">Admin</option>
+			</select>
+
 		<input type="submit" value="Login">
 		<br>
 		<br>
