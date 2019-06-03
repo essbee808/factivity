@@ -1,7 +1,13 @@
-<h2>List of Events</h2>
-<br>
-	
-<br>
-<a href="/events/new">Create New Event</a>
-<br>
+
+<div class="content">
+	<h3>List of Events</h3>
+	<br>
+		<% @events.each do |el| %>
+			<li><a href="/"><%= el.title %></a></li><br>
+		<% end %>
+	<br>
+	<br>
+	<a href="/events/new">Create New Event</a>
+	<br>
+</div>
 <a href="/logout">Logout</a>

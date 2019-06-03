@@ -38,9 +38,6 @@ a:hover {
     font-size: 40px;
   }
 
-.branding {
-	text-align: center;
-}
 
 .responsive {
 	width: 100%;
@@ -54,7 +51,7 @@ a:hover {
 
 .content {
 	padding: 5.50%;
-	font-size: 18px;
+	font-size: 14px;
 	text-align: left;
 
 }

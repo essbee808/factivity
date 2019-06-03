@@ -12,8 +12,23 @@ class EventsController < ApplicationController
 
 	post '/events' do
 		@event = Event.new(:title => params[:event][:name], :location => params[:event][:location], :event_date => params[:event][:event_date], :start_time => params[:event][:start_time], :end_time => params[:event][:end_time])
-		@event.save
-		redirect to "/events"
+		if !Event.all.find_by(:title => @event.title)
+			@event.save
+			@events = Event.all
+			redirect to "/events"
+		else
+			#create error display page for duplicate events
+			redirect to "/events/error"
+		end
+	end
+
+	get "/events/error" do 
+		erb :'events/error'
+	end
+
+	get "/events/:id" do 
+		@event = Event.find_by(:id)
+		# create detail page for each event
 	end
 
 	get '/events/:id/edit' do

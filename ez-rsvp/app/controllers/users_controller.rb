@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   	else
   		user = User.create(name: params[:user])
       redirect to "/success"
-  	end
+  	end 
   end
 
   get '/success' do
