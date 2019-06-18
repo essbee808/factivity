@@ -27,10 +27,10 @@ class EventsController < ApplicationController
 	end
 
 	get "/events/:id" do 
-		@event = Event.find_by(:id)
-		# create detail page for each event
+		@event = Event.find_by_id(params[:id])
+		erb :'events/show'
 	end
 
-	get '/events/:id/edit' do
-	end
+	# get '/events/:id/edit' do
+	# end
 end

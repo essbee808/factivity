@@ -6,37 +6,38 @@ class UsersController < ApplicationController
   	erb :index
   end
 
-  get '/login' do 
-  	erb :'users/login'
-  end
-
-  get '/register' do 
-  	erb :'users/new'
+  get '/registrations/new' do 
+  	erb :'users/registrations/new'
   end  
 
-  post '/register' do # collects login info
-  
+  post '/registrations' do # collects login info
   	@user = User.find_by(:email => params[:user][:email])
   	if @user
-  		erb :'users/user_exists'
+  		erb :'users/registrations/user_exists'
   	else
-  		user = User.create(name: params[:user])
+  		user = User.create(params[:user])
       redirect to "/success"
   	end 
   end
 
-  get '/success' do
-    erb :'users/confirmation'
+  post '/sessions/login' do
+    @user = User.find_by(:email => params[:email], :password_digest => params[:password])
+    session[:user_id] = @user.id
+    if @user != nil
+      erb :'/users/home'
+    else
+      erb :'users/error'
+    end
   end
 
-  post '/login' do
-  	@user = User.find_by(:email => params[:email])
-  	if @user && (@user.password_digest == params[:password])
-  		session[:user_id] = @user.id
- 		redirect to "/home/#{@user.id}"
-  	else
-  		erb :'users/error'
-  	end
+  get '/success' do
+    erb :'users/registrations/confirmation'
+  end
+
+  get '/users/home' do
+    binding.pry
+    @user = User.find(session[:user_id])
+    erb :'/users/home'
   end
 
   get '/home/:id' do 
@@ -45,7 +46,7 @@ class UsersController < ApplicationController
   	erb :'/users/show'
   end
 
-  get '/logout' do
+  get '/sessions/logout' do
   	# render logout page
   	session.clear
   	redirect to "/"

@@ -1,5 +1,7 @@
-<h1>Create A New Event</h1>
-
+<head>
+  <link rel="stylesheet" type="text/css" href="../stylesheets/main.css" />
+</head>
+<h3 class="heading">Create A New Event</h3>
 <form action="/events" method="POST">
 	<label>Name:</label>
 		<input type="text" name="event[name]" id="event_name">
@@ -16,5 +18,5 @@
 	<label>End:</label>
 		<input type="time" name="event[end_time]" id="event_end">
 		<br>
-	<input type="submit" value="Submit">
+	<input type="submit" value="Submit" class="submit-button">
 </form>

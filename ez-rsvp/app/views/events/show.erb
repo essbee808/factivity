@@ -1,0 +1,21 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="../stylesheets/main.css" />
+</head>
+
+<div class="content">
+  <h3 class="heading"><%= @event.title %></h3>
+  <br>
+  	<div>
+  	  <h5>LOCATION: </h5>
+  	    <p><%= @event.location %></p>
+  	  <h5>DATE: </h5>
+  		<p><%= @event.event_date %></p>
+  	  <h5>START:</h5>
+  	  	<p><%= @event.start_time %></p>
+  	  <h5>END: </h5>
+  	  	<p><%= @event.end_time %></p>
+  	</div>
+  <a href="/logout">Logout</a>
+</div>
+
+

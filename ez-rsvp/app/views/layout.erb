@@ -14,28 +14,24 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/main.css" />
   </head>
   <body>
-    <div class="wrapper">
-      <header id="wrap">
-        <div class="wrapper">
-          <div class="branding">
-            <h1 id="site-desc"><a href="/">EZ RSVP</a></h1>
-          </div>
-        
-        </div>
-         
-     </header>
-
- 
-
+    <header>
+      <a href="/" id="logo">EZ RSVP</a>
+      <div class="topnav">
+        <a class="active" href="/">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
+    </header>
+    <br>
+    <br>
+    
       <%= yield %>
-      
+
 
   <!--     <img src="https://www.craigbeck.com/wp-content/uploads/2018/07/positive-energy.jpeg" alt="sand" class="responsive"> -->
-
-      <footer class="branding">
+      <footer>
         <small>&copy; 2019 <strong>EZ RSVP</strong></small>
       </footer>
-    </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <!--[if lt IE 7]>
