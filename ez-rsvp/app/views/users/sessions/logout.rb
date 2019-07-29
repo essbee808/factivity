@@ -6,5 +6,6 @@
 		<br>
 		<br>
 		<a href="../registrations/new">Create A New Account</a>
+		<p>You are logged out.</p>
 		</form>
 	</div>

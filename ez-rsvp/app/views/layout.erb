@@ -6,33 +6,31 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-
     <title>EZ RSVP</title>
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link rel="stylesheet" type="text/css" href="stylesheets/main.css" />
   </head>
   <body>
-    <header>
-      <a href="/" id="logo">EZ RSVP</a>
-      <div class="topnav">
-        <a class="active" href="/">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-      </div>
-    </header>
-    <br>
-    <br>
-    
-      <%= yield %>
+    <!--Flex Container -->
+    <div class="flex-container">
+      <header>
+        <a href="/" id="logo">EZ RSVP</a>
+        <div class="topnav">
+          <a class="active" href="/">Home</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </div>
+      </header>
+      <main>
 
+        <%= yield %>
 
-  <!--     <img src="https://www.craigbeck.com/wp-content/uploads/2018/07/positive-energy.jpeg" alt="sand" class="responsive"> -->
+    <!--     <img src="https://www.craigbeck.com/wp-content/uploads/2018/07/positive-energy.jpeg" alt="sand" class="responsive"> -->
+      </main>
       <footer>
         <small>&copy; 2019 <strong>EZ RSVP</strong></small>
       </footer>
-
+    </div>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <!--[if lt IE 7]>
       <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>

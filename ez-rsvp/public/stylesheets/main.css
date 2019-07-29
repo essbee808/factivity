@@ -14,6 +14,7 @@ form {
 	margin: auto;
 	position: relative;
 	padding-top: 50px;
+	padding-bottom: 50px;
 }
 
 input {
@@ -23,9 +24,16 @@ input {
 }
 
 input[type=text] {
-	width: 50%;
+	width: 60%;
 	box-sizing: border-box;
 	height: 28px;
+}
+
+.flex-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
 }
 
 #logo {
@@ -74,14 +82,8 @@ input.submit-button {
 	text-transform: uppercase;
 }
 
-a:hover {
-	color: #9fcf67;;
-}
-
 a {
-	color: #444;
+	color: #7382be;
 	text-decoration: none;
 }
-
-
 

@@ -2,13 +2,11 @@ require './config/environment'
 require 'pry'
 
 class ApplicationController < Sinatra::Base
-	register Sinatra::ActiveRecordExtension
-	set :session_secret, "my_application_secret"
-	set :views, Proc.new { File.join(root, "../views/") }
-
-  # configure do
-  #   set :public_folder, 'public'
-  #   set :views, 'app/views'
-  # end
+	configure do
+		register Sinatra::ActiveRecordExtension
+		enable :sessions # turns sessions on
+		set :session_secret, "my_application_secret" #encryption key that is used to create session_id
+		set :views, Proc.new { File.join(root, "../views/") }
+	end
 
 end

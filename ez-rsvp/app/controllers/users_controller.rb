@@ -3,7 +3,12 @@ require 'pry'
 class UsersController < ApplicationController
 
  get '/' do
-  	erb :index
+    #binding.pry
+    if session
+      redirect to '/users/home'
+    else
+    	erb :index
+    end
   end
 
   get '/registrations/new' do 
@@ -22,9 +27,10 @@ class UsersController < ApplicationController
 
   post '/sessions/login' do
     @user = User.find_by(:email => params[:email], :password_digest => params[:password])
-    session[:user_id] = @user.id
     if @user != nil
-      erb :'/users/home'
+      @session = session
+      @session[:user_id] = @user.id
+      redirect '/users/home'
     else
       erb :'users/error'
     end
@@ -35,7 +41,6 @@ class UsersController < ApplicationController
   end
 
   get '/users/home' do
-    binding.pry
     @user = User.find(session[:user_id])
     erb :'/users/home'
   end
@@ -47,7 +52,8 @@ class UsersController < ApplicationController
   end
 
   get '/sessions/logout' do
-  	# render logout page
+  	#render logout page
+    binding.pry
   	session.clear
   	redirect to "/"
   end
