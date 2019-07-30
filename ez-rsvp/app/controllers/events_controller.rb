@@ -27,6 +27,7 @@ class EventsController < ApplicationController
 	end
 
 	get "/events/:id" do 
+		#binding.pry
 		@event = Event.find_by_id(params[:id])
 		erb :'events/show'
 	end

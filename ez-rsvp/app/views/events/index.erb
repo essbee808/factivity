@@ -5,7 +5,8 @@
 	<h3 class="heading">List of Events</h3>
 	<br>
 		<% @events.each do |el| %>
-			<li><a href="/events/#{el.id}"><%= el.title %></a></li><br>
+			<% @el = el %>
+			<a href="/events/<%= @el.id %>"><li><%= el.title %></li></a>
 		<% end %>
 	<br>
 	<br>
