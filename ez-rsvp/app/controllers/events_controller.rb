@@ -32,6 +32,16 @@ class EventsController < ApplicationController
 		erb :'events/show'
 	end
 
-	# get '/events/:id/edit' do
-	# end
+	get '/events/:id/edit' do
+		binding.pry
+		erb :'events/edit'
+	end
+
+	post '/events/:id' do
+
+	end
+
+	post '/events/:id/delete' do
+
+	end
 end

@@ -11,21 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190520064928) do
+ActiveRecord::Schema.define(version: 20190801015613) do
 
   create_table "events", force: :cascade do |t|
-    t.string "title"
-    t.string "location"
-    t.date   "event_date"
-    t.time   "start_time"
-    t.time   "end_time"
+    t.string  "title"
+    t.string  "location"
+    t.date    "event_date"
+    t.time    "start_time"
+    t.time    "end_time"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string  "name"
-    t.string  "email"
-    t.string  "password_digest"
-    t.boolean "admin"
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
   end
 
 end

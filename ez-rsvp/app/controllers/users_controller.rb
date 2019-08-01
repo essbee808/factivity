@@ -45,14 +45,12 @@ class UsersController < ApplicationController
   end
 
   get '/homepage' do
-  
     @user = User.find_by(:id => session[:id])
     if @user
       erb :'users/home'
     else
       redirect to "/"
     end
-    
   end
 
   get '/home/:id' do 
