@@ -11,34 +11,42 @@ class UsersController < ApplicationController
   end  
 
   post '/registrations' do # collects login info
-  	@user = User.find_by(:email => params[:user][:email])
-  	if @user
-  		erb :'users/registrations/user_exists'
-  	else
-  		user = User.create(params[:user])
-      redirect to "/success"
-  	end 
+    
+  	 user = User.new(:email => params[:user][:email], :password => params[:user][:password_digest], :name => params[:user][:name])
+  	 users = User.all
+
+     users.detect do |el|
+      if el.email == user.email
+        redirect "/failure"
+      else
+        user.save
+        redirect "/success"
+      end
+     end
   end
 
   post '/sessions/login' do
-    @user = User.find_by(:email => params[:email], :password_digest => params[:password])
-    if @user != nil
+    user = User.find_by(:email => params[:email])
+    if user && user.authenticate(params[:password])
       @session = session
-      @session[:id] = @user.id
+      @session[:id] = user.id
       redirect to '/homepage'
-    elsif @user == nil
+    else
       erb :'users/error'
     end
-    @session
   end
 
   get '/success' do
     erb :'users/registrations/confirmation'
   end
 
+  get '/failure' do
+    erb :'users/registrations/user_exists'
+  end
+
   get '/homepage' do
-    binding.pry
-    @user = User.find_by(session[:id])
+  
+    @user = User.find_by(:id => session[:id])
     if @user
       erb :'users/home'
     else
