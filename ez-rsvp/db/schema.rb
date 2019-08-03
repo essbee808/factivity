@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20190802175849) do
     t.date    "event_date"
     t.time    "start_time"
     t.time    "end_time"
-    t.integer "user_id"
     t.integer "creator"
   end
 

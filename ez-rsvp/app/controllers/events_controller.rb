@@ -12,9 +12,7 @@ class EventsController < ApplicationController
 
 	post '/events' do
 		@event = Event.new(:title => params[:event][:name], :location => params[:event][:location], :event_date => params[:event][:event_date], :start_time => params[:event][:start_time], :end_time => params[:event][:end_time], :creator => session[:id])
-		binding.pry
-		if !Event.all.find_by(:title => @event.title)
-			
+		if Event.find_by(:title => @event.title) == nil
 			@event.save
 			@events = Event.all
 			redirect to "/events"
@@ -28,16 +26,18 @@ class EventsController < ApplicationController
 		erb :'events/error'
 	end
 
-	get "/events/:id" do 
+	get '/events/:id/edit' do
 		#binding.pry
-		@event = Event.find_by_id(params[:id])
+		@event = Event.find_by(:id => params["id"].to_i)
+		erb :'events/edit'
+	end
+
+	get "/events/:id" do 
+		@event = Event.find_by(:id => params["id"].to_i)
 		erb :'events/show'
 	end
 
-	get '/events/:id/edit' do
-		binding.pry
-		erb :'events/edit'
-	end
+	
 
 	post '/events/:id' do
 

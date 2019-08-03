@@ -2,19 +2,19 @@
 <form action="/events/<%= @event.id %>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
   <label>Name:</label>
-    <input type="text" name="event[name]" id="event_name" value="<%= @event.name %>">
+    <input type="text" name="event[title]" id="event_name" value="<%= @event.title %>">
     <br>
   <label>Location:</label>
-    <input type="text" name="event[location]" id="event_location">
+    <input type="text" name="event[location]" id="event_location" value="<%= @event.location %>">
     <br>
   <label>Date:</label>
-    <input type="date" name="event[event_date]" id="event_date">
+    <input type="date" name="event[event_date]" id="event_date" value="<%= @event.event_date %>">
     <br>
   <label>Start:</label>
-    <input type="time" name="event[start_time]" id="event_start">
+    <input type="time" name="event[start_time]" id="event_start" value="<%= @event.start_time %>">
     <br>
   <label>End:</label>
-    <input type="time" name="event[end_time]" id="event_end">
+    <input type="time" name="event[end_time]" id="event_end" value="<%= @event.end_time %>">
     <br>
   <input type="submit" value="Update" class="submit-button">
 </form>
