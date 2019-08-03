@@ -38,6 +38,19 @@ class EventsController < ApplicationController
 		erb :'events/show'
 	end
 
+	patch "/events/:id" do
+		#binding.pry
+		@event = Event.find_by_id(params[:id])
+		@event.title = params[:event][:title]
+		@event.location = params[:event][:location]
+		@event.event_date = params[:event][:event_date]
+		@event.start_time = params[:event][:start_time]
+		@event.end_time = params[:event][:end_time]
+
+		@event.save
+		redirect to "/events/#{@event.id}"
+	end
+
 	
 
 	post '/events/:id' do
@@ -46,6 +59,7 @@ class EventsController < ApplicationController
 
 	delete '/events/:id/delete' do
 		# user is only able to delete event from event list if user matches creator id
+		binding.pry
 		@event = Event.find_by_id(params[:id])
 		@event.delete
 	end
