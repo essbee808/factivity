@@ -11,18 +11,16 @@ class UsersController < ApplicationController
   end  
 
   post '/registrations' do # collects login info
-    
-  	 user = User.new(:email => params[:user][:email], :password => params[:user][:password_digest], :name => params[:user][:name])
-  	 users = User.all
-
-     users.detect do |el|
-      if el.email == user.email
-        redirect "/failure"
-      else
-        user.save
+     #persist to database if user email does not exist
+     existing_user = User.find_by(:email => params[:user][:email])
+      
+      if existing_user == nil
+        binding.pry
+        @user = User.create(:email => params[:user][:email], :password => params[:user][:password_digest], :name => params[:user][:name])
         redirect "/success"
+      else
+        redirect "/failure"
       end
-     end
   end
 
   post '/sessions/login' do
@@ -41,7 +39,7 @@ class UsersController < ApplicationController
   end
 
   get '/failure' do
-    erb :'users/registrations/user_exists'
+    erb :'users/registrations/error'
   end
 
   get '/homepage' do
