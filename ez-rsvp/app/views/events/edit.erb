@@ -2,7 +2,7 @@
 <form action="/events/<%= @event.id %>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
   <label>Name:</label>
-    <input type="text" name="event[title]" id="event_name" value="<%= @event.title %>">
+    <input type="text" name="event[title]" id="event_title" value="<%= @event.title %>">
     <br>
   <label>Location:</label>
     <input type="text" name="event[location]" id="event_location" value="<%= @event.location %>">
