@@ -4,7 +4,7 @@
 
 <div class="content">
   <h3 class="heading"><%= @event.title %></h3>
-  <h3><a href="/events/<%= @event.id %>/rsvp">RSVP</a></h3>
+  <h3><a href="/<%= @event.id %>/rsvp">RSVP</a></h3>
   <br>
   	<div>
   	  <h5>LOCATION: <%= @event.location %></h5>
@@ -14,8 +14,13 @@
   	</div>
     <div>
       <% if @event.creator == session[:id] %>
-        <a href="/events/<%= @event.id %>/edit">Edit</a>
-        <a href="#">Delete</a>
+        <form action="/events/<%= @event.id %>" method="post">
+          <input id="hidden" type="hidden" name="_method" value="PATCH">
+          <input type="submit" value="Edit">
+        <form action="/events/<%= @event.id %>" method="post">
+           <input id="hidden" type="hidden" name="_method" value="DELETE">
+           <input type="submit" value="Delete">
+        </form>
       <% end %>
     </div>
   <a href="/logout">Logout</a>

@@ -47,20 +47,12 @@ class EventsController < ApplicationController
 		redirect to "/events/#{@event.id}"
 	end
 
-	post '/events/:id' do
-
-	end
-
-	delete '/events/:id/delete' do
+	delete '/events/:id' do
 		# user is only able to delete event from event list if user matches creator id
-		binding.pry
-		@event = Event.find_by_id(params[:id])
-		@event.delete
-	end
-
-	get '/events/:id/rsvp' do
 		@event = Event.find_by_id(params[:id])
 		binding.pry
+		@event.destroy
+		redirect to '/events'
 	end
 
 	# create route for association
