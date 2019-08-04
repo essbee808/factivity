@@ -11,7 +11,7 @@ class EventsController < ApplicationController
 	end
 
 	post '/events' do
-		binding.pry
+		#binding.pry
 		@event = Event.new(:title => params[:event][:title], :location => params[:event][:location], :event_date => params[:event][:event_date], :start_time => params[:event][:start_time], :end_time => params[:event][:end_time], :creator => session[:id])
 		if Event.find_by(:title => @event.title) == nil
 			@event.save
@@ -41,17 +41,11 @@ class EventsController < ApplicationController
 	patch "/events/:id" do
 		#binding.pry
 		@event = Event.find_by_id(params[:id])
-		@event.title = params[:event][:title]
-		@event.location = params[:event][:location]
-		@event.event_date = params[:event][:event_date]
-		@event.start_time = params[:event][:start_time]
-		@event.end_time = params[:event][:end_time]
-
+		binding.pry
+		@event.update(params[:event])
 		@event.save
 		redirect to "/events/#{@event.id}"
 	end
-
-	
 
 	post '/events/:id' do
 
@@ -62,6 +56,11 @@ class EventsController < ApplicationController
 		binding.pry
 		@event = Event.find_by_id(params[:id])
 		@event.delete
+	end
+
+	get '/events/:id/rsvp' do
+		@event = Event.find_by_id(params[:id])
+		binding.pry
 	end
 
 	# create route for association

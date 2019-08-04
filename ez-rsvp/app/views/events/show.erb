@@ -4,21 +4,19 @@
 
 <div class="content">
   <h3 class="heading"><%= @event.title %></h3>
+  <h3><a href="/events/<%= @event.id %>/rsvp">RSVP</a></h3>
   <br>
   	<div>
-  	  <h5>LOCATION: </h5>
-  	    <p><%= @event.location %></p>
-  	  <h5>DATE: </h5>
-  		<p><%= @event.event_date %></p>
-  	  <h5>START:</h5>
-  	  	<p><%= @event.start_time %></p>
-  	  <h5>END: </h5>
-  	  	<p><%= @event.end_time %></p>
+  	  <h5>LOCATION: <%= @event.location %></h5>
+  	  <h5>DATE: <%= @event.event_date %></h5>
+  	  <h5>START: <%= @event.start_time %></h5>
+  	  <h5>END: <%= @event.end_time %></h5>
   	</div>
     <div>
-      <a href="/events/<%= @event.id %>/edit">Edit</a>
-      <a href="#">Delete</a>
-      <a href="#">
+      <% if @event.creator == session[:id] %>
+        <a href="/events/<%= @event.id %>/edit">Edit</a>
+        <a href="#">Delete</a>
+      <% end %>
     </div>
   <a href="/logout">Logout</a>
 </div>

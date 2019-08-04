@@ -1,3 +1,6 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="../stylesheets/main.css" />
+</head>
 <h3 class="heading">Update Event</h3>
 <form action="/events/<%= @event.id %>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
@@ -11,10 +14,10 @@
     <input type="date" name="event[event_date]" id="event_date" value="<%= @event.event_date %>">
     <br>
   <label>Start:</label>
-    <input type="time" name="event[start_time]" id="event_start" value="<%= @event.start_time %>">
+    <input type="string" name="event[start_time]" id="event_start" value="<%= @event.start_time %>">
     <br>
   <label>End:</label>
-    <input type="time" name="event[end_time]" id="event_end" value="<%= @event.end_time %>">
+    <input type="string" name="event[end_time]" id="event_end" value="<%= @event.end_time %>">
     <br>
   <input type="submit" value="Update" class="submit-button">
 </form>
