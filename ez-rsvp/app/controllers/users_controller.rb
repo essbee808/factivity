@@ -3,7 +3,12 @@ require 'pry'
 class UsersController < ApplicationController
 
  get '/' do
-  erb :'index'
+  #binding.pry
+  # if session[:id]
+  #   redirect to "/homepage"
+  # else
+    erb :'index'
+  # end
  end
 
   get '/registrations/new' do 
@@ -58,7 +63,7 @@ class UsersController < ApplicationController
   end
 
   get '/:id/rsvp' do
-    @event = Event.find_by_id(params[:id])
+    event = Event.find_by_id(params[:id])
     binding.pry
   end
 

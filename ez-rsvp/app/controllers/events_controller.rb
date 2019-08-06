@@ -12,7 +12,9 @@ class EventsController < ApplicationController
 
 	post '/events' do
 		#binding.pry
-		@event = Event.new(:title => params[:event][:title], :location => params[:event][:location], :event_date => params[:event][:event_date], :start_time => params[:event][:start_time], :end_time => params[:event][:end_time], :creator => session[:id])
+		@event = Event.new(:title => params[:event][:title], :location => params[:event][:location], :event_date => params[:event][:event_date], :start_time => params[:event][:start_time], :end_time => params[:event][:end_time])
+		user = User.find_by(session[:id])
+		@event.user = user
 		if Event.find_by(:title => @event.title) == nil
 			@event.save
 			@events = Event.all
@@ -54,6 +56,4 @@ class EventsController < ApplicationController
 		@event.destroy
 		redirect to '/events'
 	end
-
-	# create route for association
 end
