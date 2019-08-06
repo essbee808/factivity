@@ -1,12 +1,16 @@
 class RsvpsController < ApplicationController
 
 	post '/rsvp/:id' do 
-		binding.pry
 		@event = Event.find_by("id" => params[:id])
-		
-		new_rsvp = Rsvp.create("users_id" => session[:id], "events_id" => @event.id)
-		user = User.find_by("id" => session[:id])
-		user.rsvps 
+		#binding.pry
+		@user = User.find_by("id" => session[:id])
+		binding.pry
+		if !@user.rsvps.find_by("user_id" => @user.id, "event_id" => @event.id)
+			new_rsvp = Rsvp.create("user_id" => session[:id], "event_id" => @event.id)
+			user.rsvps << new_rsvp
+		else
+			erb :'rsvp/error'
+		end
 	end
 
 		# post '/:id/rsvp' do

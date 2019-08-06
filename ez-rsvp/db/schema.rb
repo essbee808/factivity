@@ -23,12 +23,12 @@ ActiveRecord::Schema.define(version: 20190806075253) do
   end
 
   create_table "rsvps", force: :cascade do |t|
-    t.integer "users_id"
-    t.integer "events_id"
+    t.integer "user_id"
+    t.integer "event_id"
   end
 
-  add_index "rsvps", ["events_id"], name: "index_rsvps_on_events_id"
-  add_index "rsvps", ["users_id"], name: "index_rsvps_on_users_id"
+  add_index "rsvps", ["event_id"], name: "index_rsvps_on_event_id"
+  add_index "rsvps", ["user_id"], name: "index_rsvps_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string "name"

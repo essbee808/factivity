@@ -4,8 +4,10 @@
 
 <div class="content">
   <h3 class="heading"><%= @event.title %></h3>
- <form action="/rsvp/<%= @event.id %>" method="POST">
+
+  <form action="/rsvp/<%= @event.id %>" method="POST">
     <input type="submit" value="RSVP">
+
   <br>
   	<div>
   	  <h5>LOCATION: <%= @event.location %></h5>
@@ -14,7 +16,7 @@
   	  <h5>END: <%= @event.end_time %></h5>
   	</div>
     <div>
-      <% if @event.user_id == session[:id] %>
+      <% if @event.id == session[:id] %>
         <form action="/events/<%= @event.id %>" method="post">
           <input id="hidden" type="hidden" name="_method" value="PATCH">
           <input type="submit" value="Edit">
