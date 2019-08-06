@@ -62,11 +62,6 @@ class UsersController < ApplicationController
   	erb :'/users/show'
   end
 
-  get '/:id/rsvp' do
-    event = Event.find_by_id(params[:id])
-    binding.pry
-  end
-
   get '/logout' do
   	#render logout page
     #binding.pry

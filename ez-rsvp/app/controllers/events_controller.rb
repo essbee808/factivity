@@ -11,11 +11,11 @@ class EventsController < ApplicationController
 	end
 
 	post '/events' do
-		#binding.pry
 		@event = Event.new(:title => params[:event][:title], :location => params[:event][:location], :event_date => params[:event][:event_date], :start_time => params[:event][:start_time], :end_time => params[:event][:end_time])
-		user = User.find_by(session[:id])
-		@event.user = user
-		if Event.find_by(:title => @event.title) == nil
+		#binding.pry
+		if Event.find_by(:title => @event.title, :event_date => @event.event_date) == nil
+			user = User.find_by("id" => session[:id])
+			@event.user_id = user.id
 			@event.save
 			@events = Event.all
 			redirect to "/events"
@@ -52,8 +52,8 @@ class EventsController < ApplicationController
 	delete '/events/:id' do
 		# user is only able to delete event from event list if user matches creator id
 		@event = Event.find_by_id(params[:id])
-		binding.pry
 		@event.destroy
 		redirect to '/events'
 	end
+
 end
