@@ -7,7 +7,7 @@ class RsvpsController < ApplicationController
 		if !@user.rsvps.find_by("user_id" => @user.id, "event_id" => @event.id)
 			new_rsvp = Rsvp.create("user_id" => session[:id], "event_id" => @event.id)
 			@user.rsvps << new_rsvp
-			redirect to '/events/:id'
+			redirect to "/events/#{@event.id}"
 		else
 			erb :'rsvp/error'
 		end
@@ -16,14 +16,10 @@ class RsvpsController < ApplicationController
 	delete '/rsvp/:id' do
 		@user = User.find_by("id" => session[:id])
 		@event = Event.find_by("id" => params[:id])
-		remove_rsvp = @user.rsvps.select { |t| t.event_id == @event.id }
-		@user.rsvps.delete(remove_rsvp)
-		redirect to '/events/:id'
+		rsvp = Rsvp.find_by("user_id" => @user.id, "event_id" => @event.id)
+		rsvp.destroy
+		binding.pry
+		redirect to "/events/#{@event.id}"
 	end
 
-		# post '/:id/rsvp' do
-  #   	event = Event.find_by_id(params[:id])
-  #   	binding.pry
-  #   	
-  #   end
 end

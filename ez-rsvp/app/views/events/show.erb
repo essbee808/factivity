@@ -8,7 +8,8 @@
 
 <body>
 <div class="content">
-  <h4><%= @event.event_date.strftime('%A, %B %d, %Y') %></h4>
+  <% date = @event.event_date %>
+  <h4><%= date.strftime('%A, %B %d, %Y') %></h4>
   <h2><%= @event.title %></h2>
   <div class="event-details">
     <p>Location: <%= @event.location %></p>
@@ -18,7 +19,7 @@
 </div>
 
 <div class="rsvp-response">
-  <% rsvp = @user.rsvps.find_by("event_id" == @event.id) %>
+  <% rsvp = Rsvp.find_by("user_id" => @user.id, "event_id" => @event.id) %>
   <% if rsvp %>
     <h3>See you there!</h3>
     <form action="/rsvp/<%= @event.id %>" method="POST">
