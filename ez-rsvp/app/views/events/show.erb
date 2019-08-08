@@ -24,9 +24,7 @@
   <% else %>
       <h3>Are you going?</h3>
       <form action="/rsvp/<%= @event.id %>" method="POST">
-      <input type="submit" value="Yes">
-      <form action="/rsvp/<%= @event.id %>" method="POST">
-      <input type="submit" value="No"> 
+      <input type="submit" name="yes" value="Yes">
   <% end %>
 </div>
 

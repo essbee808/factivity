@@ -3,7 +3,6 @@ require 'pry'
 class UsersController < ApplicationController
 
  get '/' do
-  binding.pry
   @user = User.find_by("id" => session[:id])
   if @user
     redirect to "/homepage"
