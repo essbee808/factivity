@@ -35,15 +35,13 @@ class EventsController < ApplicationController
 		erb :'events/edit'
 	end
 
-	get "/events/:id" do 
+	get '/events/:id' do 
 		@event = Event.find_by(:id => params["id"].to_i)
-		#binding.pry
 		@user = User.find_by("id" => session[:id])
 		erb :'events/show'
 	end
 
 	patch "/events/:id" do
-		#binding.pry
 		@event = Event.find_by_id(params[:id])
 		binding.pry
 		@event.update(params[:event])

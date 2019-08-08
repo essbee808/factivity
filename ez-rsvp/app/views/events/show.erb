@@ -2,37 +2,47 @@
   <link rel="stylesheet" type="text/css" href="../stylesheets/main.css" />
 </head>
 
-<div class="content">
-  <h3 class="heading"><%= @event.title %></h3>
-  <% rsvp = @user.rsvps.find_by("event_id" == @event.id) %>
-  <% if rsvp %>
-    <h3>You have RSVP'd for this event!<h3> <!-- create remove from user's rsvp list button -->
-    <form action="/rsvp/<%= @event.id %>" method="POST">
-    <input type="submit" value="Remove">
-  <% else %>
-    <form action="/rsvp/<%= @event.id %>" method="POST">
-    <input type="submit" value="RSVP">
-  <% end %>
-  <br>
-  	<div>
-  	  <h5>LOCATION: <%= @event.location %></h5>
-  	  <h5>DATE: <%= @event.event_date %></h5>
-  	  <h5>START: <%= @event.start_time %></h5>
-  	  <h5>END: <%= @event.end_time %></h5>
-  	</div>
-    <div>
-      <% if @event.id == session[:id] %>
-        <form action="/events/<%= @event.id %>" method="post">
-          <input id="hidden" type="hidden" name="_method" value="PATCH">
-          <input type="submit" value="Edit">
-        <form action="/events/<%= @event.id %>" method="post">
-           <input id="hidden" type="hidden" name="_method" value="DELETE">
-           <input type="submit" value="Delete">
-        </form>
-      <% end %>
-    </div>
+<header>
   <a href="/logout">Logout</a>
+</header>
+
+<body>
+<div class="content">
+  <h4><%= @event.event_date.strftime('%A, %B %d, %Y') %></h4>
+  <h2><%= @event.title %></h2>
+  <div class="event-details">
+    <p>Location: <%= @event.location %></p>
+    <p>Start: <%= @event.start_time %></p>
+    <p>End: <%= @event.end_time %></p>
+  </div>     
 </div>
 
+<div class="rsvp-response">
+  <% rsvp = @user.rsvps.find_by("event_id" == @event.id) %>
+  <% if rsvp %>
+    <h3>See you there!</h3>
+    <form action="/rsvp/<%= @event.id %>" method="POST">
+      <input id="hidden" type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Remove Event">
+  <% else %>
+      <h3>Are you going?</h3>
+      <form action="/rsvp/<%= @event.id %>" method="POST">
+      <input type="submit" value="Yes">
+      <form action="/rsvp/<%= @event.id %>" method="POST">
+      <input type="submit" value="No"> 
+  <% end %>
+</div>
 
-
+<!-- if user created this event -->
+<div>
+  <% if @event.id == session[:id] %>
+    <form action="/events/<%= @event.id %>" method="post">
+      <input id="hidden" type="hidden" name="_method" value="PATCH">
+      <input type="submit" value="Edit">
+    <form action="/events/<%= @event.id %>" method="post">
+      <input id="hidden" type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Delete">
+    </form>
+  <% end %>
+</div>
+</body>
