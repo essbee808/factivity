@@ -17,10 +17,10 @@
         <a href="/" id="logo">EZ RSVP</a>
         <div class="topnav">
           <% if @user %>
-            <a href="my-events">My Events</a>
+            <a href="/my-events">My Events</a>
             <a href="/logout">Logout</a>
           <% else %>
-            <a href="/logout">Login</a>
+            <a href="/">Login</a>
             <a href="../registrations/new">Sign Up</a>
           <% end %>
         </div>

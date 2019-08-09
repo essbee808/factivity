@@ -30,7 +30,7 @@
 
 <!-- if user created this event -->
 <div>
-  <% if @event.id == session[:id] %>
+  <% if @event.user_id == session[:id] %>
     <form action="/events/<%= @event.id %>" method="post">
       <input id="hidden" type="hidden" name="_method" value="PATCH">
       <input type="submit" value="Edit">

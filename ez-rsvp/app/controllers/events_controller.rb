@@ -12,7 +12,6 @@ class EventsController < ApplicationController
 
 	post '/events' do
 		@event = Event.new(:title => params[:event][:title], :location => params[:event][:location], :event_date => params[:event][:event_date], :start_time => params[:event][:start_time], :end_time => params[:event][:end_time])
-		#binding.pry
 		if Event.find_by(:title => @event.title, :event_date => @event.event_date) == nil
 			user = User.find_by("id" => session[:id])
 			@event.user_id = user.id
@@ -41,6 +40,12 @@ class EventsController < ApplicationController
 		erb :'events/show'
 	end
 
+	get '/my-events' do 
+    	@user = User.find_by(:id => session[:id])
+    	erb :'/events/my_events'
+  	end
+
+ 	#edit and delete an event
 	patch "/events/:id" do
 		@event = Event.find_by_id(params[:id])
 		binding.pry
