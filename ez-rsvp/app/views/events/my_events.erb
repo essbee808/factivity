@@ -2,10 +2,9 @@
   <link rel="stylesheet" type="text/css" href="../stylesheets/main.css" />
 </head>
 <div>
-	<% binding.pry %>
 	<% @user.rsvps.each do |el| %>
 		<% binding.pry %>
-		<% @el = el %>
-			<a href="/events/<%= @el.id %>"><li><%= el.title %></li></a>
+		<% @event = Event.find_by("id" => el.event_id) %>
+		<a href="/events/<%= @event.id %>"><li><%= @event.title %></li></a>
 	<% end %>
 </div>

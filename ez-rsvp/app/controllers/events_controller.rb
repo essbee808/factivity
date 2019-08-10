@@ -40,8 +40,10 @@ class EventsController < ApplicationController
 		erb :'events/show'
 	end
 
-	get '/events/my-events' do 
+	get "/my-events" do 
+		@event = Event.find_by(:id => params["id"].to_i)
     	@user = User.find_by(:id => session[:id])
+    	binding.pry
     	erb :'events/my_events'
   	end
 
