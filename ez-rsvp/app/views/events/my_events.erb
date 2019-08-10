@@ -2,11 +2,10 @@
   <link rel="stylesheet" type="text/css" href="../stylesheets/main.css" />
 </head>
 <div>
+	<% binding.pry %>
 	<% @user.rsvps.each do |el| %>
-		<% @el = el %>
 		<% binding.pry %>
-		<% if @el.user_id == session[:id] %>
+		<% @el = el %>
 			<a href="/events/<%= @el.id %>"><li><%= el.title %></li></a>
-		<% end %>
 	<% end %>
 </div>

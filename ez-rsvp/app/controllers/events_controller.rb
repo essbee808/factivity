@@ -40,9 +40,9 @@ class EventsController < ApplicationController
 		erb :'events/show'
 	end
 
-	get '/my-events' do 
+	get '/events/my-events' do 
     	@user = User.find_by(:id => session[:id])
-    	erb :'/events/my_events'
+    	erb :'events/my_events'
   	end
 
  	#edit and delete an event

@@ -16,8 +16,9 @@
       <header>
         <a href="/" id="logo">EZ RSVP</a>
         <div class="topnav">
-          <% if @user %>
-            <a href="/my-events">My Events</a>
+        
+          <% if @user.id == session[:id] %>
+            <a href="/events/my-events">My Events</a>
             <a href="/logout">Logout</a>
           <% else %>
             <a href="/">Login</a>
