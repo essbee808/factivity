@@ -1,15 +1,15 @@
 <head>
   <link rel="stylesheet" type="text/css" href="../stylesheets/main.css" />
 </head>
-<div>
+<div class="content">
 	<% @user.rsvps.each do |el| %>
 		<% @event = Event.find_by("id" => el.event_id) %>
 		<ul>
-			<li><a href="/events/<%= @event.id %>"><%= @event.title %></a></li>
+			<li class="item"><a href="/events/<%= @event.id %>"><%= @event.title %></a></li>
 		</ul>
 		<form action="/rsvp/<%= @event.id %>" method="POST" class="delete">
 	        <input id="hidden" type="hidden" name="_method" value="DELETE">
-	        <input type="submit" value="Remove Event">
+	        <input type="submit" value="Remove Event" class="submit">
     	</form>
 	<% end %>
 </div>

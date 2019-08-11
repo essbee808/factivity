@@ -30,7 +30,6 @@ class EventsController < ApplicationController
 	end
 
 	get '/events/:id/edit' do
-		#binding.pry
 		@event = Event.find_by(:id => params["id"].to_i)
 		erb :'events/edit'
 	end
@@ -50,7 +49,6 @@ class EventsController < ApplicationController
  	#edit and delete an event
 	patch "/events/:id" do
 		@event = Event.find_by_id(params[:id])
-		binding.pry
 		@event.update(params[:event])
 		@event.save
 		redirect to "/events/#{@event.id}"

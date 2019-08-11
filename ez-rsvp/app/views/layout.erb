@@ -13,20 +13,20 @@
   </head>
   <body>
     <!--Flex Container -->
-    <div id="wrapper">
-      <div id="topnav">
-        <ul>
-          <li><a href="/" id="logo">EZ RSVP</a></li>
+      <nav>
+        <div>
+          <h1><a href="/" id="logo">EZ RSVP</a></h1>
+        </div>
           <% if @user %>
-            <li><a href="/my-events">My Events</a></li>
-            <li><a href="/logout">Logout</a></li>
-          <% else %>
-           <li><a href="/">Login</a></li>
-           <li><a href="../registrations/new">Sign Up</a></li>
-        </ul>
+            <ul>
+              <li><a href="/my-events">My Events</a></li>
+              <li><a href="/logout">Logout</a></li>
+            <% else %>
+              <li><a href="/">Login</a>
+              <li><a href="../registrations/new">Sign Up</a></li>
+            </ul>
           <% end %>
-      </div>
-
+      </nav>
       <main>
         <%= yield %>
     <!--     <img src="https://www.craigbeck.com/wp-content/uploads/2018/07/positive-energy.jpeg" alt="sand" class="responsive"> -->
