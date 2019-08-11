@@ -3,12 +3,14 @@ require 'pry'
 class UsersController < ApplicationController
 
  get '/' do
-  @user = User.find_by("id" => session[:id])
-  if @user
-    redirect to "/homepage"
-  else
-    erb :'index'
-  end
+
+  erb :'/index'
+  # @user = User.find_by("id" => session[:id])
+  # if @user
+  #   redirect to "/homepage"
+  # else
+  #   erb :'index'
+  # end
  end
 
   get '/registrations/new' do 

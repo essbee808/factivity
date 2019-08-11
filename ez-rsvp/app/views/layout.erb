@@ -2,7 +2,8 @@
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> 
+<html class="no-js" lang="en"> <!--<![endif]-->
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
@@ -12,34 +13,33 @@
   </head>
   <body>
     <!--Flex Container -->
-    <div class="flex-container">
-      <header>
-        <a href="/" id="logo">EZ RSVP</a>
-        <div class="topnav">
-        
-          <% if @user.id == session[:id] %>
-            <a href="/my-events">My Events</a>
-            <a href="/logout">Logout</a>
+    <div id="wrapper">
+      <div id="topnav">
+        <ul>
+          <li><a href="/" id="logo">EZ RSVP</a></li>
+          <% if @user %>
+            <li><a href="/my-events">My Events</a></li>
+            <li><a href="/logout">Logout</a></li>
           <% else %>
-            <a href="/">Login</a>
-            <a href="../registrations/new">Sign Up</a>
+           <li><a href="/">Login</a></li>
+           <li><a href="../registrations/new">Sign Up</a></li>
+        </ul>
           <% end %>
-        </div>
-      </header>
+      </div>
+
       <main>
-
         <%= yield %>
-
     <!--     <img src="https://www.craigbeck.com/wp-content/uploads/2018/07/positive-energy.jpeg" alt="sand" class="responsive"> -->
       </main>
+
       <footer>
         <small>&copy; 2019 <strong>EZ RSVP</strong></small>
       </footer>
-    </div>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <!--[if lt IE 7]>
       <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
       <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
     <![endif]-->
+  </div>
   </body>
 </html>

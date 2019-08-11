@@ -1,7 +1,6 @@
 html {
 	margin: 0 auto;
-	padding: 50px;
-	max-width: 1220px;
+	padding: 40px;
 }
 
 footer {
@@ -13,8 +12,8 @@ form {
 	height: 450px;
 	margin: auto;
 	position: relative;
-	padding-top: 50px;
-	padding-bottom: 50px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
 input {
@@ -29,11 +28,20 @@ input[type=text] {
 	height: 28px;
 }
 
-.flex-container {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  flex-direction: column;
+#wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+}
+
+#topnav {
+    float: left;
+    width: 20%;
+    overflow: hidden;
+}
+ul {
+	list-style-type: none;
 }
 
 #logo {
@@ -44,29 +52,22 @@ input[type=text] {
 }
 
 #login {
+	float: right;
 	font-size: 20px;
 	text-align: center;
 	padding-top: 50px;
-	padding-bottom: 50px;
+	padding-bottom: 10px;
 }
 
-.topnav {
-	float: right;
-	text-decoration: none;
-}
-
-.topnav a {
-	text-decoration: none;
-}
 
 .heading {
 	text-align: center;
 	font-size: 30px;
 }
 
-div.greeting {
+div#greeting {
 	text-align: left;
-	font-size: 30px;
+	padding-top: 20px;
 }
 
 
@@ -80,6 +81,18 @@ input.submit-button {
 	text-align: center;
 	letter-spacing: .1em;
 	text-transform: uppercase;
+}
+
+.col-1 {
+	float: left;
+	border: none;
+	width: 50%;
+	height: 100px;
+}
+
+.col-2 {
+	float: right;
+	margin-left: 5px;
 }
 
 a {

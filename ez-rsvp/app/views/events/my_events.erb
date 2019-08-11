@@ -5,6 +5,8 @@
 	<% @user.rsvps.each do |el| %>
 		<% binding.pry %>
 		<% @event = Event.find_by("id" => el.event_id) %>
-		<a href="/events/<%= @event.id %>"><li><%= @event.title %></li></a>
+		<ul>
+			<li><a href="/events/<%= @event.id %>"><%= @event.title %></a></li>
+		</ul>
 	<% end %>
 </div>
