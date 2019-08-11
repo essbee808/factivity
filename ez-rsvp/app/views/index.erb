@@ -1,10 +1,20 @@
 	<div id="login">
 		<form action="/sessions/login" method="POST">
-			<input type="email" name="email" placeholder="Email Address" required>
-			<input type="password" name="password" placeholder="Password" required>
-		<input type="submit" value="Login" class="submit-button">
-		<br>
-		<br>
-		<a href="../registrations/new">Create A New Account</a>
+		  <fieldset>
+		  	<p>
+			  <label for="email">Email</label>
+				<input type="email" name="email" placeholder="user@gmail.com" required>
+			</p>
+			<p>
+			  <label for="password">Password</label>
+				<input type="password" name="password" placeholder="1234" required>
+			</p>
+			<p>
+			  <input type="submit" value="Login" class="submit">
+			</p>
+			  <br>
+			  <br>
+			<a href="../registrations/new">Create A New Account</a>
+		  </fieldset>
 		</form>
 	</div>

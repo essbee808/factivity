@@ -3,10 +3,13 @@
 </head>
 <div>
 	<% @user.rsvps.each do |el| %>
-		<% binding.pry %>
 		<% @event = Event.find_by("id" => el.event_id) %>
 		<ul>
 			<li><a href="/events/<%= @event.id %>"><%= @event.title %></a></li>
 		</ul>
+		<form action="/rsvp/<%= @event.id %>" method="POST" class="delete">
+	        <input id="hidden" type="hidden" name="_method" value="DELETE">
+	        <input type="submit" value="Remove Event">
+    	</form>
 	<% end %>
 </div>
