@@ -13,6 +13,7 @@ body, html {
 	width: 100vw;
 	height: 100vh;
 	direction: column;
+	padding-bottom: 10px; /* check padding in view */
 }
 
 
@@ -76,6 +77,10 @@ div.col-2 {
 	float: left;
 	text-decoration: none;
 	color: #7382be;
+}
+
+.event-list {
+
 }
 
 
