@@ -44,6 +44,7 @@ div#greeting {
 .col-1 {
 	text-align: left;
 	float: left;
+	height: 60%;
 }
 
 .col-1 a {
@@ -63,7 +64,7 @@ div.col-2 {
 	text-align: right;
 	padding-left: 60px;
 	float: right;
-
+	height: 60%;
 }
 
 /*.flex-container {
@@ -75,7 +76,6 @@ div.col-2 {
 
 .rsvp-response {
 	color: green;
-
 }
 
 #logo {
@@ -109,6 +109,10 @@ main {
 footer {
 	padding-top: 200px;
 	text-align: center;
+	clear: both;
+	position: relative;
+	height: 200px;
+	margin-top: -200px;
 }
 
 
