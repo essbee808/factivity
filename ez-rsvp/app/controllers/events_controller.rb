@@ -7,11 +7,11 @@ class EventsController < ApplicationController
 		erb :'events/index'
 	end
 
-	get '/events/new' do
+	get '/events/new' do #render new event page
 		erb :'events/new'
 	end
 
-	post '/events' do
+	post '/events' do # create and save new event to database
 		@event = Event.new(:title => params[:event][:title], :location => params[:event][:location], :event_date => params[:event][:event_date], :start_time => params[:event][:start_time], :end_time => params[:event][:end_time])
 		if Event.find_by(:title => @event.title, :event_date => @event.event_date) == nil
 			user = User.find_by("id" => session[:id])
@@ -34,28 +34,30 @@ class EventsController < ApplicationController
 		erb :'events/edit'
 	end
 
-	get '/events/:id' do 
+	get '/events/:id' do #renders event show page
 		@event = Event.find_by(:id => params["id"].to_i)
 		@user = User.find_by("id" => session[:id])
 		erb :'events/show'
 	end
 
-	get "/my-events" do 
+	get "/my-events" do #renders all events
 		@event = Event.find_by(:id => params["id"].to_i)
     	@user = User.find_by(:id => session[:id])
     	erb :'events/my_events'
   	end
-
- 	#edit and delete an event
-	patch "/events/:id" do
+ 	
+	patch "/events/:id" do #edit and delete an event
 		@event = Event.find_by_id(params[:id])
 		@event.update(params[:event])
 		@event.save
 		redirect to "/events/#{@event.id}"
 	end
 
-	delete '/events/:id' do
+	delete '/events/:id' do #delete event created by user
 		# user is only able to delete event from event list if user matches creator id
+		rsvps = Rsvp.find_by(:event_id => 4)
+		rsvps = Rsvp.select(:event_id => 4)
+
 		@event = Event.find_by_id(params[:id])
 		@event.destroy
 		redirect to '/events'

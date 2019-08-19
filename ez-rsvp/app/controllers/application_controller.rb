@@ -2,6 +2,7 @@ require './config/environment'
 require 'pry'
 
 class ApplicationController < Sinatra::Base
+	# enable sessions
 	configure do
 		register Sinatra::ActiveRecordExtension
 		enable :sessions # turns sessions on

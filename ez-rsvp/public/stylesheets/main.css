@@ -29,6 +29,7 @@ li a {
 
 ul {
 	list-style: none;
+
 }
 
 .nav li {
@@ -42,6 +43,7 @@ div#greeting {
 
 .col-1 {
 	text-align: left;
+	float: left;
 }
 
 .col-1 a {
@@ -60,6 +62,8 @@ div#greeting {
 div.col-2 {
 	text-align: right;
 	padding-left: 60px;
+	float: right;
+
 }
 
 /*.flex-container {
@@ -70,7 +74,8 @@ div.col-2 {
 }*/
 
 .rsvp-response {
-	color: red;
+	color: green;
+
 }
 
 #logo {
@@ -80,12 +85,18 @@ div.col-2 {
 }
 
 .event-list {
+	text-decoration: none;
+	float: left;
+}
 
+.title {
+	text-align: center;
 }
 
 
 main {
 	padding-top: 30px;
+	padding-bottom: 20px;
 }
 
 /*.item {
