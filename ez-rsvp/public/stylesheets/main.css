@@ -1,30 +1,97 @@
 body, html {
 	margin: 0 auto;
-	padding: 10px 10px;
 	font-size: 100%;
 	font-family: "Helvetica", sans-serif;
-	background: black;
-	color: white;
 }
+
+/*------------------ navigation menu --------------- */
 
 header {
 	list-style: none;
 	display: flex;
 	width: 100%;
-	height: 80px;
-	margin: 20px 0;
+	height: 100%;
+	margin: 0 auto;
+	background: black;
 }
 
+.topnav {
+	overflow: hidden;
+}
+
+.topnav a {
+	float: left;
+	text-decoration: none;
+	color: white;
+	text-align: center;
+}
+
+.nav-right {
+	float: right;
+}
+
+.nav-item {
+	padding: 16px;
+}
+
+#logo {
+	font-size: 50px;
+}
+
+header a {
+	color: white;
+}
+
+a {
+	color: red;
+}
+
+a:hover {
+	color: yellow;
+}
+
+
+/*---------------------- content ----------------- */
+
 main {
+	overflow: hidden;
+}
+
+.about p {
+	float: left;
+	margin-top: 40px;
 	width: 100%;
 	height: 100%;
+	text-decoration: none;
+	color: black;
+	text-align: center;
 }
+
+fieldset {
+	float: right;
+	background: white;
+	color: black;
+	width: 40%;
+	height: 100%;
+	display: flex;
+	text-align: center;
+}
+
+.nav-item {
+	padding: 16px;
+}
+
+/*main {
+	width: 100%;
+	height: 100%;
+}*/
 
 footer {
 	position: absolute;
 	text-align: center;
 	bottom: 0;
 	width: 100%;
+	color: black;
 }
 
 .flex-container {
@@ -65,34 +132,17 @@ header ul {
 	height: 50px;
 }
 
-/* Top Navigation Menu */
 
-#logo {
-	font-size: 50px;
-}
-
-.topnav {
-	overflow: hidden;
-}
-
-.topnav a {
+div.about {
+	display: inline-block;
 	float: left;
-	text-decoration: none;
-	color: white;
+	width: 60%;
 	text-align: center;
-}
-
-.nav-right {
-	float: right;
-}
-
-.nav-item {
-	padding: 16px;
+	border: 3px dotted;
 }
 
 
-
-/* User's RSVP List */
+/*------------------- User's RSVP List ----------------*/
 
 .event-list {
 	text-decoration: none;
@@ -132,6 +182,17 @@ div#greeting {
 	padding-left: 10px;
 }
 
+/*fieldset {
+	background: white;
+	color: black;
+	width: 40%;
+	height: 100%;
+	display: flex;
+	float: right;
+	text-align: center;
+
+}*/
+
 div.col-1 {
 	text-align: center;
 	float: left;
@@ -153,7 +214,6 @@ div.col-2 {
 	height: 100%;
 	float: left;
 	display: inline-block;
-	background-color: white;
 }
 
 div.col-2 a {
@@ -162,22 +222,12 @@ div.col-2 a {
 	display: inline-block;
 	width: 100%;
 	float: left;
-
 }
 
 .submit {
 	text-align: center;
 	padding-bottom: 5px;
 }
-
-a {
-	color: white;
-}
-
-a:hover {
-	color: yellow;
-}
-
 
 .rsvp-response {
 	color: black;
@@ -196,6 +246,12 @@ a:hover {
 	margin-left: 60px;
 }
 
+.created-by {
+	font-size: 12px;
+	margin-top: -20px;
+	margin-bottom: 50px;
+}
+
 
 /* sign in box*/
 /*label {
@@ -205,13 +261,6 @@ a:hover {
 	margin-right: 0.5em;
 	display: block;
 }*/
-
-
-/*fieldset {
-	border: 1px solid #781351;
-	width: 20em;
-}
-*/
 
 
 /*input {

@@ -36,7 +36,8 @@ class EventsController < ApplicationController
 
 	get '/events/:id' do #renders event show page
 		@event = Event.find_by(:id => params["id"].to_i)
-		@user = User.find_by("id" => session[:id])
+		@user = User.find_by(:id => session[:id])
+		@creator = User.find_by(:id => @event.user_id)
 		erb :'events/show'
 	end
 
