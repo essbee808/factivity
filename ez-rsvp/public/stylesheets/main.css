@@ -17,14 +17,8 @@ header {
 }
 
 main {
-	display: flex;
 	width: 100%;
 	height: 100%;
-	flex-flow: column wrap;
-	justify-content: center;
-	margin-top: 40px;
-	clear: both;
-	padding-bottom: 100px;
 }
 
 footer {
@@ -53,7 +47,6 @@ li a {
 
 ul {
 	list-style: none;
-
 }
 
 header ul {
@@ -65,15 +58,67 @@ header ul {
 	display: flex;
 	height: 50px;
 }
-	
-.nav-item {
-	flex: 1;
+
+/* Top Navigation Menu */
+
+#logo {
+	font-size: 50px;
 }
 
-.nav-item a {
-	display: block;
-	width: 100%;
+.topnav {
+	overflow: hidden;
 }
+
+.topnav a {
+	float: left;
+	text-decoration: none;
+	color: #7382be;
+	text-align: center;
+}
+
+.nav-right {
+	float: right;
+}
+
+.nav-item {
+	padding: 16px;
+}
+
+
+
+/* User's RSVP List */
+
+.event-list {
+	text-decoration: none;
+	overflow: hidden;
+}
+
+.event-list ul li {
+	float: left;
+	text-decoration: none;
+}
+
+/* buttons */
+.remove {
+	text-transform: uppercase;
+	background: red;
+	font-weight: bold;
+	border-radius: 70px;
+	padding: 5px;
+	margin-left: 8px;
+	margin-top: 4px;
+}
+
+.add {
+	text-transform: uppercase;
+	background: green;
+	font-weight: bold;
+	border-radius: 70px;
+	padding: 5px;
+	margin-left: 8px;
+	margin-top: 4px;
+}
+
 
 div#greeting {
 	text-align: left;
@@ -81,17 +126,36 @@ div#greeting {
 }
 
 div.col-1 {
-	text-align: left;
+	text-align: center;
 	float: left;
+	display: inline-block;
 	width: 100%;
+	height: 100%;
 }
 
 div.col-1 a {
 	text-decoration: none;
 	list-style: none;
-	padding: 8px;
-	float: left;
+	margin-top: 10px;
+	font-size: 17px;
+}
+
+div.col-2 {
+	text-align: center;
 	width: 100%;
+	height: 100%;
+	float: left;
+	display: inline-block;
+	background-color: white;
+}
+
+div.col-2 a {
+	text-decoration: none;
+	text-align: center;
+	display: inline-block;
+	width: 100%;
+	float: left;
+
 }
 
 .submit {
@@ -99,44 +163,31 @@ div.col-1 a {
 	padding-bottom: 5px;
 }
 
-div.col-2 {
-	text-align: center;
-	width: 100%;
-	float: left;
-}
-
-div.col-2 a {
-	text-decoration: none;
-	text-align: center;
-	width: 100%;
-	float: left;
+a {
+	color: black;
 }
 
 a:hover {
-	color: #cc00cc;
+	color: #7382be;
 }
 
 
 .rsvp-response {
-	color: green;
-}
-
-#logo {
-	float: left;
-	text-decoration: none;
-	color: #7382be;
-}
-
-.event-list {
-	text-decoration: none;
-	float: left;
+	color: black;
 }
 
 .title {
 	text-align: center;
 }
 
-
+.modify-event form {
+	float: left;
+	
+	margin-top: 20px;
+	height: 100%;
+	width: 100%;
+	margin-left: 60px;
+}
 
 
 /* sign in box*/
@@ -148,31 +199,15 @@ a:hover {
 	display: block;
 }*/
 
-/*input .submit {
-	margin-left: 4.5em;
-	color: #000;
-	background: #ffa20f;
-	border: 5px outset #d7b9c9
-}
 
-input {
-	color: #781351;
-	background: #fee3ad;
-	border: 1px solid #781351;  
-}
-
-fieldset {
+/*fieldset {
 	border: 1px solid #781351;
 	width: 20em;
 }
 */
 
 
-
-
-
-
-input {
+/*input {
 	width: 35%;
 	height: 20px;
 	font-size: 20px;
@@ -200,19 +235,6 @@ input[type=text] {
 	padding-top: 50px;
 	padding-bottom: 10px;
 }
-
-
-/*input.submit-button {
-	display: inline-block;
-	border: none;
-	border-radius: 6px;
-	background: #7382be;
-	color: #fff;
-	height: auto;
-	text-align: center;
-	letter-spacing: .1em;
-	text-transform: uppercase;
-}
-
+*/
 
 

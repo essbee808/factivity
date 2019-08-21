@@ -1,7 +1,3 @@
-<head>
-  <link rel="stylesheet" type="text/css" href="../stylesheets/main.css" />
-</head>
-
   <div class="col-1">
     <% date = @event.event_date %>
     <h4><%= date.strftime('%A, %B %d, %Y') %></h4>
@@ -20,24 +16,26 @@
         <h3>See you there!</h3>
           <form action="/rsvp/<%= @event.id %>" method="POST">
             <input id="hidden" type="hidden" name="_method" value="DELETE"> 
-              <input type="submit" value="Remove from my events">
+              <input type="submit" value="Remove from my events" class="remove">
           </form>
         <% else %>
             <h4>Are you going?</h4>
             <form action="/rsvp/<%= @event.id %>" method="POST">
-                <input type="submit" name="yes" value="Yes">
+                <input type="submit" name="yes" value="Yes I'll be there" class="add">
+                <input type="submit" name="no" value="No thanks" class="remove">
           </form>
       <% end %>
     </div>
-
-  <!-- if user created this event -->
+    <!-- if user created this event -->
+    <div class="modify-event">
     <% if @event.user_id == session[:id] %>
       <form action="/events/<%= @event.id %>/edit" method="GET">
-        <input type="submit" value="Edit" class="submit">
+        <input type="submit" value="Edit Details" class="submit">
       </form>
       <form action="/events/<%= @event.id %>" method="POST">
         <input id="hidden" type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="Delete" class="delete">
+        <input type="submit" value="Delete Event">
       </form>
     <% end %>
-</div>
+    </div>
+  </div>
