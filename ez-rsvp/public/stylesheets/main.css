@@ -47,7 +47,14 @@ li a {
 
 ul {
 	list-style: none;
+	float: left;
 }
+
+.event-item ul a:hover {
+	background-color: black;
+	color: white;
+}
+
 
 header ul {
 	flex: 1;
@@ -182,7 +189,6 @@ a:hover {
 
 .modify-event form {
 	float: left;
-	
 	margin-top: 20px;
 	height: 100%;
 	width: 100%;

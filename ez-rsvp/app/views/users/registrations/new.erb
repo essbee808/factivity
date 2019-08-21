@@ -1,17 +1,22 @@
-<div>
-	<h3 class="heading">Create A New User</h3>
-	<form action="/registrations" method="POST">
-		<label>Name:</label>
-			<input type="text" name="user[name]" id="name">
-		<br>
-		<label>Email:</label>
-			<input type="email" name="user[email]" id="email">
-		<br>
-		<label>Password:</label>
-			<input type="password" name="user[password_digest]" id="user_password">
-		<br>
-		<br>
-		<input type="submit" value="Sign Up" class="submit-button">
-		<br>
-	</form>
-</div>
+<head>
+	<link rel="stylesheet" type="text/css" href="../stylesheets/main.css" />
+</head>
+<main>
+	<div>
+		<h3 class="heading">Create A New User</h3>
+		<form action="/registrations" method="POST">
+			<label>Name:</label>
+				<input type="text" name="user[name]" id="name">
+			<br>
+			<label>Email:</label>
+				<input type="email" name="user[email]" id="email">
+			<br>
+			<label>Password:</label>
+				<input type="password" name="user[password_digest]" id="user_password">
+			<br>
+			<br>
+			<input type="submit" value="Sign Up" class="submit-button">
+			<br>
+		</form>
+	</div>
+</main>
