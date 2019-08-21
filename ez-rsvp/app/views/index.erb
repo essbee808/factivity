@@ -1,6 +1,6 @@
 	<div id="login">
+		<fieldset>
 		<form action="/sessions/login" method="POST">
-		  <fieldset>
 		  	<p>
 			  <label for="email">Email</label>
 				<input type="email" name="email" placeholder="user@gmail.com" required>
@@ -10,11 +10,23 @@
 				<input type="password" name="password" placeholder="1234" required>
 			</p>
 			<p>
-			  <input type="submit" value="Login" class="submit">
+			  <input type="submit" value="Login">
 			</p>
 			  <br>
 			  <br>
 			<a href="../registrations/new">Create A New Account</a>
-		  </fieldset>
 		</form>
+		</fieldset>
 	</div>
+
+<!-- 	<div id="login">
+		<form action="/sessions/login" method="POST">
+			<label for="email">Email </label>
+				<input type="email" name="email" placeholder="user@gmail.com" required>
+			<label for="password">Password </label>
+				<input type="password" name="password" placeholder="1234" required>
+			<input type="submit" value="Login">
+		</form>
+
+		<a href="../registrations/new">Create A New Account</a>
+	</div> -->

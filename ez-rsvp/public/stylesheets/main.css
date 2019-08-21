@@ -8,12 +8,34 @@ body, html {
 	padding: 20px;
 }
 
-.nav {
+header {
+	list-style: none;
 	display: flex;
-	width: 100vw;
-	height: 100vh;
-	direction: column;
-	padding-bottom: 10px; /* check padding in view */
+	width: 100%;
+	height: 80px;
+}
+
+main {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	flex-flow: column wrap;
+	justify-content: center;
+	
+}
+
+footer {
+	padding-top: 30px;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+}
+
+.flex-container {
+  display: flex;
+  width: 50vw;
+  height: 35vh;
+  flex-direction: column;
 }
 
 
@@ -32,47 +54,37 @@ ul {
 
 }
 
-.nav li {
+.nav-item {
 	display: inline-block;
+	float: right;
 }
 
 div#greeting {
 	text-align: left;
-	padding-top: 70px;
 }
 
 .col-1 {
 	text-align: left;
 	float: left;
-	height: 60%;
+	width: 50%;
 }
 
 .col-1 a {
 	text-decoration: none;
 	list-style: none;
+	width: 50%;
 }
 
 .submit {
 	text-align: left;
 }
 
-/*ul {
-	list-style-type: none;
-}*/
-
 div.col-2 {
 	text-align: right;
-	padding-left: 60px;
+	width: 50%;
 	float: right;
-	height: 60%;
 }
 
-/*.flex-container {
-	display: flex;
-	width: 100vw;
-	height: 100vh;
-	direction: column;
-}*/
 
 .rsvp-response {
 	color: green;
@@ -94,38 +106,18 @@ div.col-2 {
 }
 
 
-main {
-	padding-top: 30px;
-	padding-bottom: 20px;
-}
-
-/*.item {
-	height: 100px;
-	width: 100px;
-	margin: 0.5px;
-	background-color: #FCF2EC;
-}*/
-
-footer {
-	padding-top: 200px;
-	text-align: center;
-	clear: both;
-	position: relative;
-	height: 200px;
-	margin-top: -200px;
-}
 
 
-/* sign in box
-label {
+/* sign in box*/
+/*label {
 	width: 4em;
 	float: left;
 	text-align: right;
 	margin-right: 0.5em;
 	display: block;
-}
+}*/
 
-input .submit {
+/*input .submit {
 	margin-left: 4.5em;
 	color: #000;
 	background: #ffa20f;
@@ -142,7 +134,7 @@ fieldset {
 	border: 1px solid #781351;
 	width: 20em;
 }
-
+*/
 
 
 
@@ -167,13 +159,6 @@ input[type=text] {
     height: 100vh;
     flex-direction: column;
 }
-
-#topnav {
-    float: left;
-    width: 20%;
-}
-
-
 
 
 
@@ -211,11 +196,3 @@ input.submit-button {
 
 
 
-input.delete {
-	background-color: #ff0000;
-	border-radius: 6px;
-	text-align: center;
-}
-
-
-*/
