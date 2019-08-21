@@ -18,9 +18,8 @@ class RsvpsController < ApplicationController
 		@user = User.find_by("id" => session[:id])
 		@event = Event.find_by("id" => params[:id])
 		rsvp = Rsvp.find_by("user_id" => @user.id, "event_id" => @event.id)
-		#rsvp.destroy
-		redirect to "/events/#{@event.id}"
+		rsvp.destroy
+		redirect to "/my-events"
 	end
 end
 
-#Rsvp.all shows up empty?; create new rsvps with various users and make sure that all rsvps for that event are deleted
