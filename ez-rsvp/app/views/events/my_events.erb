@@ -2,6 +2,7 @@
 	<link rel="stylesheet" type="text/css" href="../stylesheets/main.css" />
 </head>
 <main>
+	<h2 class="title">My RSVP List</h2>
 	<div class="event-list">
 		<% @user.rsvps.each do |el| %>
 			<% @event = Event.find_by("id" => el.event_id) %>
