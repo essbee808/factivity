@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
  get '/' do
   @user = User.find_by("id" => session[:id])
-  if @user
+  if @user != nil
     redirect to "/homepage"
   else
     erb :'index'
@@ -20,7 +20,6 @@ class UsersController < ApplicationController
      existing_user = User.find_by(:email => params[:user][:email])
       
       if existing_user == nil
-        #binding.pry
         @user = User.create(:email => params[:user][:email], :password => params[:user][:password_digest], :name => params[:user][:name])
         redirect "/success"
       else

@@ -160,12 +160,17 @@ header ul {
 
 /*------------------- User's RSVP List ----------------*/
 
-.event-list {
+.my-events {
+	flex-direction: row;
+	width: 100%;
+	height: 100%;
+}
+.list {
 	text-decoration: none;
 	overflow: hidden;
 }
 
-.event-list ul li {
+.list ul li {
 	float: left;
 	text-decoration: none;
 }
@@ -196,17 +201,6 @@ div#greeting {
 	text-align: center;
 	padding-left: 30px;
 }
-
-/*fieldset {
-	background: white;
-	color: black;
-	width: 40%;
-	height: 100%;
-	display: flex;
-	float: right;
-	text-align: center;
-
-}*/
 
 div.col-1 {
 	text-align: center;
@@ -249,8 +243,9 @@ div.col-2 a {
 
 }
 
-.title {
+h2.title {
 	text-align: center;
+
 }
 
 .modify-event form {

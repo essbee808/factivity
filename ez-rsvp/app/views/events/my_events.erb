@@ -1,9 +1,9 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="../stylesheets/main.css" />
 </head>
-<main>
+<div class="my-events">
 	<h2 class="title">My RSVP List</h2>
-	<div class="event-list">
+	<div class="list">
 		<% @user.rsvps.each do |el| %>
 			<% @event = Event.find_by("id" => el.event_id) %>
 			<ul>
@@ -16,4 +16,4 @@
 	    	<br>
 		<% end %>
 	</div>
-</main>
+</div>
