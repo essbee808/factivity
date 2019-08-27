@@ -18,6 +18,7 @@
         <div class="topnav">
          <a href="/" id="logo">EZ RSVP</a>
           <div class="nav-right">
+          <% @user = User.find_by(:id => session[:id]) %>
           <% if @user %>
             <ul>
               <li class="nav-item"><a href="/my-events">My RSVP List</a></li>

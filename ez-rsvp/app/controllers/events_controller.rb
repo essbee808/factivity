@@ -2,7 +2,7 @@ class EventsController < ApplicationController
 
 	get '/events' do 
 		# renders page with upcoming events
-		@user = User.find_by("id" => session[:id])
+		#@user = User.find_by("id" => session[:id])
 		@events = Event.all
 		erb :'events/index'
 	end
@@ -42,7 +42,6 @@ class EventsController < ApplicationController
 	end
 
 	get '/my-events' do #renders all events
-		@user = User.find_by(:id => session[:id])
 		@event = Event.find_by(:id => params["id"].to_i)
     	@user = User.find_by(:id => session[:id])
     	erb :'events/my_events'
