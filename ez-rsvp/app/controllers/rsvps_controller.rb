@@ -7,7 +7,6 @@ class RsvpsController < ApplicationController
 		#if !@user.rsvps.find_by("user_id" => @user.id, "event_id" => @event.id) 
 			new_rsvp = Rsvp.create("user_id" => session[:id], "event_id" => @event.id)
 			@user.rsvps << new_rsvp
-			 #redirect to add details to user's rsvp?
 			redirect to "/events/#{@event.id}"
 		elsif params["no"] == "No thanks"
 			redirect to "/events"

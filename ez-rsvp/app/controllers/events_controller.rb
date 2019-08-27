@@ -59,7 +59,6 @@ class EventsController < ApplicationController
 		# user is only able to delete event from event list if user matches creator id
 		rsvps = Rsvp.find_by(:event_id => 4)
 		rsvps = Rsvp.select(:event_id => 4)
-
 		@event = Event.find_by_id(params[:id])
 		@event.destroy
 		redirect to '/events'

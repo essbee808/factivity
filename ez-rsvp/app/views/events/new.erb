@@ -1,25 +1,25 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="../stylesheets/main.css" />
 </head>
-<main>
-<h3 class="heading">Create A New Event</h3>
-<form action="/events" method="POST">
-	<label>Name:</label>
-		<input type="text" name="event[title]" id="event_title">
-		<br>
-	<label>Location:</label>
-		<input type="text" name="event[location]" id="event_location">
-		<br>
-	<label>Date:</label>
-		<input type="date" name="event[event_date]" id="event_date">
-		<br>
-	<label>Start:</label>
-		<input type="text" name="event[start_time]" id="event_start">
-		<br>
-	<label>End:</label>
-		<input type="text" name="event[end_time]" id="event_end">
-		<br>
-	<input type="submit" value="Submit" class="submit">
-</form>
-</main>
+<div class="col-1">
+	<h2 class="title">Create A New Event</h2>
+	<form action="/events" method="POST">
+		<label>Name:</label>
+			<input type="text" name="event[title]" id="event_title">
+			<br>
+		<label>Location:</label>
+			<input type="text" name="event[location]" id="event_location">
+			<br>
+		<label>Date:</label>
+			<input type="date" name="event[event_date]" id="event_date">
+			<br>
+		<label>Start:</label>
+			<input type="text" name="event[start_time]" id="event_start">
+			<br>
+		<label>End:</label>
+			<input type="text" name="event[end_time]" id="event_end">
+			<br>
+		<input type="submit" value="Submit" class="submit">
+	</form>
+</div>
  
