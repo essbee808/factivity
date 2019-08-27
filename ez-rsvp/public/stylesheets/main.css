@@ -172,28 +172,6 @@ header ul {
 	text-decoration: none;
 }
 
-/* buttons */
-.remove {
-	text-transform: uppercase;
-	background: red;
-	font-weight: bold;
-	border-radius: 70px;
-	padding: 5px;
-	margin-left: 8px;
-	margin-top: 4px;
-}
-
-.add {
-	text-transform: uppercase;
-	background: green;
-	font-weight: bold;
-	border-radius: 70px;
-	padding: 5px;
-	margin-left: 8px;
-	margin-top: 4px;
-}
-
-
 div#greeting {
 	text-align: center;
 	padding-left: 30px;
@@ -230,11 +208,6 @@ div.col-2 a {
 	display: inline-block;
 	width: 100%;
 	float: left;
-}
-
-.submit {
-	text-align: center;
-	padding-bottom: 5px;
 }
 
 .rsvp-response {
@@ -280,6 +253,35 @@ h2.title {
 	margin-left: 8px;
 	margin-top: 4px;
 }
+
+/*-------------------buttons--------------------------*/
+.remove {
+	text-transform: uppercase;
+	background: red;
+	font-weight: bold;
+	border-radius: 70px;
+	padding: 5px;
+	margin-left: 8px;
+	margin-top: 4px;
+}
+
+.add {
+	text-transform: uppercase;
+	background: green;
+	font-weight: bold;
+	border-radius: 70px;
+	padding: 5px;
+	margin-left: 8px;
+	margin-top: 4px;
+}
+
+
+.submit {
+	text-align: center;
+	padding-bottom: 5px;
+}
+
+
 
 
 
