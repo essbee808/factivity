@@ -1,6 +1,6 @@
 # EZ Rsvp
 
-Welcome to EZ Rsvp. This free event management application was created to simplify the planning process for both organizers and attendees. 
+Welcome to EZ Rsvp. This content management system was created to simplify the planning process for both organizers and attendees. This Sinatra application utilizes CRUD actions and an MVC framework.
 
 ## Installation
 
