@@ -10,7 +10,7 @@ Welcome to EZ Rsvp. This content management system was created to simplify the p
 
 ## Usage
 
-To execute program, type ```enter website here``` in the web browser.
+To execute program, type ```shotgun``` in the terminal.
 
 ## Contributing
 
