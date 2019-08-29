@@ -4,7 +4,8 @@
 <div class="my-events">
 	<h2 class="title">RSVP List</h2>
 	<div class="list">
-		<% @user.rsvps.each do |el| %>
+		<% @user.rsvps.select do |el| %>
+			<% binding.pry %>
 			<% @event = Event.find_by(:id => el.event_id) %>
 				<ul>
 					<li class="item"><a href="/events/<%= @event.id %>"><%= @event.title %></a></li>
