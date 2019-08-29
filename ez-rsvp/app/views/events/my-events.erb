@@ -1,0 +1,21 @@
+<head>
+	<link rel="stylesheet" type="text/css" href="../stylesheets/main.css" />
+</head>
+<div class="my-events">
+	<h2 class="title">My Created Events</h2>
+		<p class="sub"><a href="/events/new">New Event</a><br></p>
+	<div class="list">
+		<% @events.each do |el| %>
+			<% @el = el %>
+			<% if @el.user_id == @user.id %>
+			   <ul>
+			   	<li class="item"><a href="/events/<%= @el.id %>"><%= @el.title %></a></li><br>
+			   </ul>
+			<% end %>
+		<% end %>
+	</div>
+</div>
+
+<div class="col-3">
+    <a href="/events">More Events</a>
+</div>

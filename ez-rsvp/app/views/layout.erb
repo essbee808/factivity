@@ -21,7 +21,8 @@
           <% @user = User.find_by(:id => session[:id]) %>
           <% if @user %>
             <ul>
-              <li class="nav-item"><a href="/my-events">My RSVP List</a></li>
+              <li class="nav-item"><a href="/my-events">My Created Events</a></li>
+              <li class="nav-item"><a href="/rsvps">RSVP List</a></li>
               <li class="nav-item"><a href="/logout">Logout</a></li>
             <% else %>
               <li class="nav-item"><a href="../registrations/new">Sign Up</a></li>

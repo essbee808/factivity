@@ -220,6 +220,11 @@ h2.title {
 
 }
 
+p.sub {
+	text-align: center;
+	padding-bottom: 13px;
+}
+
 .modify-event form {
 	float: left;
 	margin-top: 20px;

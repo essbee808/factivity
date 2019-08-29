@@ -35,6 +35,7 @@
     <div class="modify-event">
     <% if @event.user_id == session[:id] %>
       <form action="/events/<%= @event.id %>/edit" method="GET">
+        <input id="hidden" type="hidden" name="_method" value="patch">
         <input type="submit" value="Edit Details" class="submit">
       </form>
       <form action="/events/<%= @event.id %>" method="POST">
