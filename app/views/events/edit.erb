@@ -1,7 +1,7 @@
 <head>
-  <link rel="stylesheet" type="text/css" href="stylesheets/main.css" />
+  <link rel="stylesheet" type="text/css" href="../stylesheets/main.css" />
 </head>
-<main>
+<div class="col-1">
   <h3 class="title">Update Event</h3>
   <form action="/events/<%= @event.id %>" method="POST">
     <input id="hidden" type="hidden" name="_method" value="PATCH">
@@ -19,7 +19,8 @@
       <br>
     <label>End:</label>
       <input type="string" name="event[end_time]" id="event_end" value="<%= @event.end_time %>">
+    <textarea name="event[description]" id="description" rows="10" cols ="50"><%= @event.description %></textarea>
       <br>
     <input type="submit" value="Update" class="submit-button">
   </form>
-</main>
+</div>

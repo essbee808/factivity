@@ -31,16 +31,16 @@ class EventsController < ApplicationController
 		erb :'events/my-events'
 	end
 
-	get '/events/:id/edit' do
-		@event = Event.find_by(:id => params["id"].to_i)
-		erb :'events/edit'
-	end
-
 	get '/events/:id' do #renders event show page
 		@event = Event.find_by(:id => params[:id].to_i)
 		@user = User.find_by(:id => session[:id])
 		@creator = User.find_by(:id => @event.user_id)
 		erb :'events/show'
+	end
+
+	get "/events/:id/edit" do
+		@event = Event.find_by(:id => params["id"].to_i)
+		erb :'events/edit'
 	end
  	
 	patch "/events/:id" do #edit an event
@@ -56,10 +56,11 @@ class EventsController < ApplicationController
 		@all_rsvp = Rsvp.all 
 		@all_rsvp.each do |el|
 			if el.event_id == @event.id
-				el.destroy
+				Rsvp.destroy(el)
 			end
 		end
-		@event.destroy
+		Event.destroy(@event)
+		@events = Event.all
 		redirect to '/events'
 	end
 end

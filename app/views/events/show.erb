@@ -30,7 +30,7 @@
       <% rsvp = Rsvp.find_by("user_id" => @user.id, "event_id" => @event.id) %>
       <% if rsvp %>
         <h3>See you there!</h3>
-          <form action="/rsvp/<%= @event.id %>" method="POST">
+          <form action="/rsvp/<%= @event.id %>/delete" method="POST">
             <input id="hidden" type="hidden" name="_method" value="DELETE"> 
               <input type="submit" value="Remove from my events" class="remove">
           </form>
@@ -70,7 +70,6 @@
     <div class="modify-event">
     <% if @event.user_id == session[:id] %>
       <form action="/events/<%= @event.id %>/edit" method="GET">
-        <input id="hidden" type="hidden" name="_method" value="patch">
         <input type="submit" value="Edit Details" class="submit">
       </form>
       <form action="/events/<%= @event.id %>" method="POST">
