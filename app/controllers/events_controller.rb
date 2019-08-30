@@ -2,7 +2,6 @@ class EventsController < ApplicationController
 
 	get '/events' do 
 		# renders page with upcoming events
-		#@user = User.find_by("id" => session[:id])
 		@events = Event.all
 		erb :'events/index'
 	end
