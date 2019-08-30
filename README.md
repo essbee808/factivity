@@ -5,7 +5,8 @@ Welcome to EZ Rsvp. This content management system was created to simplify the p
 ## Installation
 
 1. Clone and ```bundle install``` via terminal
-2. Use ```shotgun``` to activate local server in order to automatically reload code changes.
+2. Execute ```rake db:migrate```
+2. Use ```shotgun``` to activate local server in order to automatically reload code changes
 
 ## Usage
 
