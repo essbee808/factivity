@@ -239,6 +239,12 @@ p.sub {
 	margin-bottom: 50px;
 }
 
+.total-attending {
+	font-size: 12px;
+	margin-top: -20px;
+	margin-bottom: 50px;
+}
+
 .col-3 {
 	bottom: 40px;
 	padding-bottom: 60px;

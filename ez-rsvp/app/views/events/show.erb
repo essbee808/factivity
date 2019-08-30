@@ -30,6 +30,29 @@
                 <input type="submit" name="no" value="No thanks" class="remove">
           </form>
       <% end %>
+      <br>
+      <% all_rsvps = Rsvp.all %>
+      <% @total_attending = [] %>
+      <% all_rsvps.each do |el| %>
+        <% if el.event_id == @event.id %>
+          <% @total_attending << el %>
+        <% end %>
+      <% end %>
+          <p class="total-attending">
+            <% rsvp = Rsvp.find_by(:user_id => @user.id, :event_id => @event.id) %>
+            <% if (@total_attending.size == 1) && (rsvp != nil) %>
+              <p>You are the first to RSVP!</p>
+            <% elsif (@total_attending.size == 1) && (rsvp == nil) %>
+              <p>1 person is attending.</p>
+            <% elsif (@total_attending.size > 1) && (rsvp == nil) %>
+              <p><%= @total_attending.size %> people are attending.</p>
+            <% elsif (@total_attending.size > 1) && (rsvp != nil) %>
+              <p>You and <%= @total_attending.size %> other people are attending.</p>
+            <% elsif (@total_attending.size == 1) && (rsvp == nil) %>
+              <p>1 person attending</p>
+            <% end %>
+          </p>
+        
     </div>
     <!-- if user created this event -->
     <div class="modify-event">

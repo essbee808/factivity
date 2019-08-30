@@ -13,7 +13,6 @@ class RsvpsController < ApplicationController
 		@event = Event.find_by("id" => params[:id])
 		@user = User.find_by("id" => session[:id])
 		if params["yes"] == "Yes I'll be there"
-		#if !@user.rsvps.find_by("user_id" => @user.id, "event_id" => @event.id) 
 			new_rsvp = Rsvp.create("user_id" => session[:id], "event_id" => @event.id)
 			@user.rsvps << new_rsvp
 			redirect to "/events/#{@event.id}"
