@@ -2,10 +2,10 @@ class RsvpsController < ApplicationController
 
 	get '/rsvps' do #renders all events
 		@user = User.find_by(:id => session[:id])
-		if @user.rsvps.empty?
-			erb :'rsvps/error'
-		else
+		if @user.rsvps.empty? == false
 			erb :'rsvps/show'
+		else
+			erb :'rsvps/error'
 		end
 	end
 
@@ -21,6 +21,7 @@ class RsvpsController < ApplicationController
 		end
 	end
 
+	
 	delete '/rsvp/:id' do
 		@user = User.find_by("id" => session[:id])
 		@event = Event.find_by("id" => params[:id])

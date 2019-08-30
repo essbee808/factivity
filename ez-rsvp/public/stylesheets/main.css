@@ -63,7 +63,7 @@ a {
 }
 
 a:hover {
-	color: blue;
+	color: grey;
 }
 
 header a:hover {
@@ -138,14 +138,12 @@ li a {
 
 ul {
 	list-style: none;
-
 }
 
 .event-item ul li a:hover {
 	background-color: white;
-	color: blue;
+	color: green;
 }
-
 
 header ul {
 	flex: 1;
@@ -162,6 +160,7 @@ header ul {
 	width: 100%;
 	height: 100%;
 }
+
 .list {
 	text-decoration: none;
 	overflow: hidden;
@@ -174,6 +173,16 @@ header ul {
 
 div#greeting {
 	text-align: center;
+	padding-left: 30px;
+}
+
+.attr {
+	font-weight: bold;
+}
+
+.description {
+	text-align: left;
+	font-size: 14px;
 	padding-left: 30px;
 }
 
@@ -200,6 +209,7 @@ div.col-2 {
 	float: left;
 	display: inline-block;
 	background: white;
+	padding-right: 30px;
 }
 
 div.col-2 a {
@@ -212,12 +222,16 @@ div.col-2 a {
 
 .rsvp-response {
 	color: black;
+	border: 2px solid black;
+	background-color: white;
+}
 
+.rsvp-response p {
+	font-size: 13px;
 }
 
 h2.title {
 	text-align: center;
-
 }
 
 p.sub {
@@ -239,12 +253,6 @@ p.sub {
 	margin-bottom: 50px;
 }
 
-.total-attending {
-	font-size: 12px;
-	margin-top: -20px;
-	margin-bottom: 50px;
-}
-
 .col-3 {
 	bottom: 40px;
 	padding-bottom: 60px;
@@ -256,7 +264,7 @@ p.sub {
 .col-3 a {
 	text-transform: uppercase;
 	font-size: 16px;
-	background: blue;
+	background: black;
 	color: white;
 	font-weight: bold;
 	border-radius: 10px;

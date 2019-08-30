@@ -12,7 +12,7 @@ class EventsController < ApplicationController
 	end
 
 	post '/events' do # create and save new event to database
-		@event = Event.new(:title => params[:event][:title], :location => params[:event][:location], :event_date => params[:event][:event_date], :start_time => params[:event][:start_time], :end_time => params[:event][:end_time])
+		@event = Event.new(:title => params[:event][:title], :location => params[:event][:location], :event_date => params[:event][:event_date], :start_time => params[:event][:start_time], :end_time => params[:event][:end_time], :description => params[:event][:description])
 		existing_event = Event.find_by(:title => @event.title, :event_date => @event.event_date)
 		if existing_event == nil
 			user = User.find_by(:id => session[:id])
