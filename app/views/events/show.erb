@@ -6,7 +6,13 @@
     <% date = @event.event_date %>
     <h4><%= date.strftime('%A, %B %d, %Y') %></h4>
     <h2><%= @event.title %></h2>
-      <p class="created-by">Submitted by <%= @creator.name %></p>
+      <p class="created-by">
+          <% if @creator.name == @user.name %>
+            Submitted by Me
+          <% else %>
+            Submitted by <%= @creator.name %>
+          <% end %>
+      </p>
     <div class="event-details">
       <p class="attr">Location: <%= @event.location %></p>
       <p class="attr">Start: <%= @event.start_time %></p>
