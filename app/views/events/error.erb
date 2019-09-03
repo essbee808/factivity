@@ -3,8 +3,7 @@
 </head>
 
 <div class="col-1">
-	<% date = @event.event_date %>
-	<p><%= @event.title %> on <%= date.strftime('%A, %B %d, %Y') %> already exists.</p>
+	<p>This event already exists.</p>
 	<p><a href="/events">Browse events</a></p>
-	<p><a href="/event/new">Create New Event</a></p>
+	<p><a href="/events/new">Create New Event</a></p>
 </div>
