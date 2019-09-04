@@ -32,7 +32,7 @@ class EventsController < ApplicationController
 		erb :'events/my-events'
 	end
 
-	get '/events/:id' do #renders event show page
+	get '/events/:id' do #get method renders event show page
 		@event = Event.find_by(:id => params[:id].to_i)
 		@user = User.find_by(:id => session[:id])
 		@creator = User.find_by(:id => @event.user_id)

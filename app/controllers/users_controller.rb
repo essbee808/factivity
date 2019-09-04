@@ -5,7 +5,7 @@ class UsersController < ApplicationController
  get '/' do
   @user = User.find_by("id" => session[:id])
   if @user != nil
-    redirect to "/homepage"
+    erb :'users/show'
   else
     erb :'index'
   end
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     if user && user.authenticate(params[:password])
       @session = session
       @session[:id] = user.id
-      redirect to '/homepage'
+      redirect to '/'
     else
       erb :'users/error'
     end
@@ -46,20 +46,11 @@ class UsersController < ApplicationController
     erb :'users/registrations/error'
   end
 
-  get '/homepage' do
-    @user = User.find_by(:id => session[:id])
-    if @user
-      erb :'users/home'
-    else
-      redirect to "/"
-    end
-  end
-
-  get '/home/:id' do 
-  	@user = User.find(params[:id])
-  	@events = Event.all
-  	erb :'/users/show'
-  end
+  # get '/home/:id' do 
+  # 	@user = User.find(params[:id])
+  # 	@events = Event.all
+  # 	erb :'/users/show'
+  # end
 
   get '/logout' do
   	#render logout page
