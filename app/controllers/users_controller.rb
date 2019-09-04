@@ -18,10 +18,11 @@ class UsersController < ApplicationController
   post '/registrations' do # collects login info
      #persist to database if user email does not exist
      existing_user = User.find_by(:email => params[:user][:email])
-      
-      if existing_user == nil
-        @user = User.create(:email => params[:user][:email], :password => params[:user][:password_digest], :name => params[:user][:name])
-        redirect "/success"
+     @new_user = User.new(:email => params[:user][:email], :password => params[:user][:password_digest], :name => params[:user][:name])
+      if existing_user == nil && @new_user.valid?
+        @new_user.save
+        session[:id] = @new_user.id
+        redirect "/"
       else
         redirect "/failure"
       end
@@ -30,16 +31,11 @@ class UsersController < ApplicationController
   post '/sessions/login' do
     user = User.find_by(:email => params[:email])
     if user && user.authenticate(params[:password])
-      @session = session
-      @session[:id] = user.id
+      session[:id] = user.id #session accessible everywhere
       redirect to '/'
     else
       erb :'users/error'
     end
-  end
-
-  get '/success' do
-    erb :'users/registrations/confirmation'
   end
 
   get '/failure' do
