@@ -46,12 +46,6 @@ class UsersController < ApplicationController
     erb :'users/registrations/error'
   end
 
-  # get '/home/:id' do 
-  # 	@user = User.find(params[:id])
-  # 	@events = Event.all
-  # 	erb :'/users/show'
-  # end
-
   get '/logout' do
   	#render logout page
     session.clear

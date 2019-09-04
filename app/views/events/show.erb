@@ -70,7 +70,7 @@
       <form action="/events/<%= @event.id %>/edit" method="GET">
         <input type="submit" value="Edit Details" class="submit">
       </form>
-      <form action="/events/<%= @event.id %>" method="POST">
+      <form action="/events/<%= @event.id %>/delete" method="POST">
         <input id="hidden" type="hidden" name="_method" value="DELETE">
         <input type="submit" value="Delete Event">
       </form>

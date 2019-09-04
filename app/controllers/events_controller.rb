@@ -51,7 +51,7 @@ class EventsController < ApplicationController
 		redirect to "/events/#{@event.id}"
 	end
 
-	delete '/events/:id' do #delete event created by user
+	delete '/events/:id/delete' do #delete event created by user
 		# user is only able to delete event from event list if user matches creator id
 		@event = Event.find_by_id(params[:id])
 		@all_rsvp = Rsvp.all 
