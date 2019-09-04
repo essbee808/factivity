@@ -1,4 +1,4 @@
-# FACTivities
+# FACTivity
 
 Welcome to FACTivity. This content management system was created to simplify the planning process for both organizers and attendees. This Sinatra application utilizes CRUD actions and an MVC framework.
 
