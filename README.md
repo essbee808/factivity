@@ -1,6 +1,6 @@
-# EZ Rsvp
+# FACTivities
 
-Welcome to EZ Rsvp. This content management system was created to simplify the planning process for both organizers and attendees. This Sinatra application utilizes CRUD actions and an MVC framework.
+Welcome to FACTivities. This content management system was created to simplify the planning process for both organizers and attendees. This Sinatra application utilizes CRUD actions and an MVC framework.
 
 ## Installation
 
@@ -20,6 +20,6 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/essbee
 
 ## License
 
-Ez-rsvp is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+FACTivities is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
 
