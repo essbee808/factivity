@@ -43,15 +43,22 @@ header {
 	padding: 16px;
 }
 
-#logo {
-	font-size: 50px;
+span.logo {
+	font-size: 45px;
 	text-decoration: none;
+	color: #9fcf67;
 }
 
-#logo:hover {
+
+span.logo-end {
 	color: white;
-	background: black;
+	font-size: 27px;
 }
+
+h1 {
+	color: purple;
+}
+
 
 header a {
 	color: white;
@@ -66,7 +73,7 @@ a:hover {
 	color: grey;
 }
 
-header a:hover {
+header li a:hover {
 	color: black;
 	background: white;
 }
