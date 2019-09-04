@@ -1,6 +1,6 @@
 # FACTivities
 
-Welcome to FACTivities. This content management system was created to simplify the planning process for both organizers and attendees. This Sinatra application utilizes CRUD actions and an MVC framework.
+Welcome to FACTivity. This content management system was created to simplify the planning process for both organizers and attendees. This Sinatra application utilizes CRUD actions and an MVC framework.
 
 ## Installation
 
@@ -16,10 +16,10 @@ Use local server ```http://127.0.0.1:9393/```.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/essbee808/factivities. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/essbee808/factivity. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
-FACTivities is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+FACTivity is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
 
