@@ -16,7 +16,7 @@ Use local server ```http://127.0.0.1:9393/```.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/essbee808/ez-rsvp. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/essbee808/factivities. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
