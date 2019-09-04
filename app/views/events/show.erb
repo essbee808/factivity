@@ -61,8 +61,6 @@
               <p>You and <%= (@total_attending.size)-1.to_i %> other person are attending.</p>
             <% elsif (@total_attending.size > 2) && (rsvp != nil) %>
               <p>You and <%= (@total_attending.size)-1 %> other people are attending.</p>
-            <% elsif (@total_attending.size == 1) && (rsvp == nil) %>
-              <p>1 person attending</p>
             <% end %>
           </p>
     </div>

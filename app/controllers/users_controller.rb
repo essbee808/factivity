@@ -63,7 +63,6 @@ class UsersController < ApplicationController
 
   get '/logout' do
   	#render logout page
-    #binding.pry
     session.clear
     session
   	erb :'/users/sessions/logout'
