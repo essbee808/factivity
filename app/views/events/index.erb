@@ -1,19 +1,16 @@
-<head>
-	<link rel="stylesheet" type="text/css" href="../stylesheets/main.css" />
-</head>
-	<div class="col-1">
-		<h2 class="title">Upcoming Events</h2>
-		<a href="/events/new" class="submit-button">Create A New Event</a>	
-		<br>
-		<br>
-			<% @events.each do |el| %>
-				<% @el = el %>
-			<div class="event-item">
-				<ul>
-				  <li><a href="/events/<%= @el.id %>"><%= el.title %> </a></li>
-				</ul>
-			<% end %>
-			</div>
-		<br>
-		<br>
+<div class="col-1">
+	<h2 class="title">Upcoming Events</h2>
+	<a href="/events/new" class="submit-button">Create A New Event</a>	
+	<br>
+	<br>
+		<% @events.each do |el| %>
+			<% @el = el %>
+	<div class="event-item">
+		<ul>
+			<li><a href="/events/<%= @el.id %>"><%= el.title %> </a></li>
+		</ul>
+		<% end %>
 	</div>
+	<br>
+	<br>
+</div>
