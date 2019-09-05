@@ -54,7 +54,7 @@ class EventsController < ApplicationController
 		if !logged_in? #not logged in
 		  redirect to '/'
 		  #if logged in but event doesn't exists
-		elsif logged_in? && @event.nil?
+		elsif (logged_in? && @event.nil?)
 		 redirect to "/events"
 		else 
 		  @rsvps = Rsvp.all
@@ -67,12 +67,12 @@ class EventsController < ApplicationController
 		@event = Event.find_by(:id => params[:id].to_i)
 		  if !logged_in?
 			redirect to '/'
-		  elsif current_user.created_events.find_by(:id => @event.id)
-			erb :'events/edit'
-		  elsif !current_user.created_events.include?(:id => @event.id)
-		  	redirect to '/events/:id'
+		  elsif @event && !current_user.created_events.find_by(:id => @event.id)
+		  	redirect to "/events/#{@event.id}"
+		  elsif @event && current_user.created_events.find_by(:id => @event.id)
+		  	erb :'events/edit'
 		  else
-			redirect to "/events"
+		  	redirect to '/events'
 		  end
 	end
  	
