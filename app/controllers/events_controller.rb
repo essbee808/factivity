@@ -48,27 +48,31 @@ class EventsController < ApplicationController
 	end
 
 	get '/events/:id' do #get method renders event show page
+		#binding.pry
 		@event = Event.find_by(:id => params[:id].to_i)
-		@user = User.find_by(:id => session[:id])
-		@rsvps = Rsvp.all
-		@total_attending = []
-		@new_rsvp = Rsvp.find_by(:user_id => @user.id, :event_id => @event.id)
-		if @event
-			erb :'events/show'
-		else
-			redirect to '/events'
+		current_user
+
+		if !logged_in? 
+		  redirect to '/'
+		elsif (logged_in? && @event.nil?) || @event.nil?
+		  redirect to "/events"
+		else 
+		  @rsvps = Rsvp.all
+		  @rsvp = Rsvp.find_by(:user_id => current_user.id, :event_id => @event.id) 
+		  erb :'events/show'
 		end
 	end
 
 	get '/events/:id/edit' do
 		@event = Event.find_by(:id => params[:id].to_i)
-		if !current_user
+			
+		  if !logged_in?
 			redirect to '/'
-		elsif current_user.created_events.find_by(:id => @event.id) == nil
-			redirect to "/events/#{@event.id}"
-		else
+		  elsif current_user.created_events.find_by(:id => @event.id)
 			erb :'events/edit'
-		end
+		  else
+			redirect to "/events"
+		  end
 	end
  	
 	patch '/events/:id' do #edit an event
@@ -77,8 +81,8 @@ class EventsController < ApplicationController
 		if @event.valid? && @user
 			@event.update(params[:event])
 			@event.save
+			redirect to "/events/#{@event.id}"
 		end
-		redirect to "/events/#{@event.id}"
 	end
 
 	delete '/events/:id/delete' do #delete event created by user
