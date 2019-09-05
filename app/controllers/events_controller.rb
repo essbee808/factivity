@@ -16,7 +16,6 @@ class EventsController < ApplicationController
 		@user = User.find_by(:id => session[:id])
 
 		if existing_event.nil? && @event.valid?
-			binding.pry
 			user = User.find_by(:id => session[:id])
 			@event.creator_id = user.id
 			@event.save
@@ -33,6 +32,7 @@ class EventsController < ApplicationController
 	get '/events/my-events' do 
 		# renders page with events created by current user
 		@user = User.find_by(:id => session[:id])
+		binding.pry
 		if !@user.created_events.empty?
 		  erb :'events/my-events'
 		else	

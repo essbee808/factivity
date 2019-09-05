@@ -2,11 +2,10 @@
 	<h2 class="title">RSVP List</h2>
 	<div class="list">
 		<% @user.rsvps.each do |el| %>
-			<% @event = Event.find_by(:id => el.event_id) %>
 				<ul>
 					<li class="item"><a href="/events/<%= el.id %>"><%= el.event.title %></a></li>
 				</ul>
-				<form action="/rsvp/<%= @event.id %>" method="POST">
+				<form action="/rsvp/<%= el.event.id %>" method="POST">
 			        <input id="hidden" type="hidden" name="_method" value="DELETE">
 			        <input type="submit" value="Remove" class="remove">
 		    	</form>

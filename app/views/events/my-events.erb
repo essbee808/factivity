@@ -2,7 +2,7 @@
 	<h2 class="title">My Created Events</h2>
 		<p class="sub"><a href="/events/new">New Event</a><br></p>
 	<div class="list">
-		<% @user.created_events do |el| %>
+		<% @user.created_events.each do |el| %>
 			   <ul>
 			   	<li class="item"><a href="/events/<%= el.id %>"><%= el.title %></a></li><br>
 			   </ul>

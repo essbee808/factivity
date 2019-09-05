@@ -2,7 +2,6 @@ class RsvpsController < ApplicationController
 
 	get '/rsvps' do #renders all events
 		@user = User.find_by(:id => session[:id])
-		binding.pry
 		if !@user.rsvps.empty?
 			erb :'rsvps/show'
 		else
