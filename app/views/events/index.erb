@@ -4,10 +4,9 @@
 	<br>
 	<br>
 		<% @events.each do |el| %>
-			<% @el = el %>
 	<div class="event-item">
 		<ul>
-			<li><a href="/events/<%= @el.id %>"><%= el.title %> </a></li>
+			<li><a href="/events/<%= el.id %>"><%= el.title %> </a></li>
 		</ul>
 		<% end %>
 	</div>

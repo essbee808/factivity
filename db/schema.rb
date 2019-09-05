@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190830052812) do
+ActiveRecord::Schema.define(version: 20190806074317) do
 
   create_table "events", force: :cascade do |t|
     t.string  "title"
@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 20190830052812) do
     t.date    "event_date"
     t.string  "start_time"
     t.string  "end_time"
-    t.integer "user_id"
     t.text    "description"
+    t.integer "creator_id"
   end
 
   create_table "rsvps", force: :cascade do |t|

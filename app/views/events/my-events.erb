@@ -2,13 +2,11 @@
 	<h2 class="title">My Created Events</h2>
 		<p class="sub"><a href="/events/new">New Event</a><br></p>
 	<div class="list">
-		<% @events.each do |el| %>
-			<% @el = el %>
-			<% if @el.user_id == @user.id %>
+		<% binding.pry %>
+		<% @user.created_events do |el| %>
 			   <ul>
-			   	<li class="item"><a href="/events/<%= @el.id %>"><%= @el.title %></a></li><br>
+			   	<li class="item"><a href="/events/<%= el.id %>"><%= el.title %></a></li><br>
 			   </ul>
-			<% end %>
 		<% end %>
 	</div>
 </div>

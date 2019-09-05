@@ -24,7 +24,7 @@ class UsersController < ApplicationController
         session[:id] = @new_user.id
         redirect "/"
       else
-        redirect "/failure"
+        redirect "/registrations/new"
       end
   end
 

@@ -1,10 +1,9 @@
-<main> 
-  <div class="col-1">
+<div class="col-1">
     <% date = @event.event_date %>
     <h4><%= date.strftime('%A, %B %d, %Y') %></h4>
     <h2><%= @event.title %></h2>
       <p class="created-by">
-          <% if @creator.name == @user.name %>
+          <% if @event.creator_id == session[:id] %>
             Submitted by Me
           <% else %>
             Submitted by <%= @creator.name %>
@@ -39,31 +38,28 @@
           </form>
       <% end %>
       <br>
-      <% all_rsvps = Rsvp.all %>
-      <% @total_attending = [] %>
-      <% all_rsvps.each do |el| %>
+      <% @rsvps.each do |el| %>
         <% if el.event_id == @event.id %>
           <% @total_attending << el %>
         <% end %>
       <% end %>
           <p>
-            <% rsvp = Rsvp.find_by(:user_id => @user.id, :event_id => @event.id) %>
-            <% if (@total_attending.size == 1) && (rsvp != nil) %>
+            <% if (@total_attending.size == 1) && (@new_rsvp != nil) %>
               <p>You are the first to RSVP!</p>
-            <% elsif (@total_attending.size == 1) && (rsvp == nil) %>
+            <% elsif (@total_attending.size == 1) && (@new_rsvp == nil) %>
               <p>1 person is attending.</p>
-            <% elsif (@total_attending.size >= 2) && (rsvp == nil) %>
+            <% elsif (@total_attending.size >= 2) && (@new_rsvp == nil) %>
               <p><%= @total_attending.size %> people are attending.</p>
-            <% elsif (@total_attending.size == 2) && (rsvp != nil) %>
+            <% elsif (@total_attending.size == 2) && (@new_rsvp != nil) %>
               <p>You and <%= (@total_attending.size)-1.to_i %> other person are attending.</p>
-            <% elsif (@total_attending.size > 2) && (rsvp != nil) %>
+            <% elsif (@total_attending.size > 2) && (@new_rsvp != nil) %>
               <p>You and <%= (@total_attending.size)-1 %> other people are attending.</p>
             <% end %>
           </p>
     </div>
     <!-- if user created this event -->
     <div class="modify-event">
-    <% if @event.user_id == session[:id] %>
+    <% if @event.creator_id == session[:id] %>
       <form action="/events/<%= @event.id %>/edit" method="GET">
         <input type="submit" value="Edit Details" class="submit">
       </form>
@@ -77,5 +73,5 @@
 
   <div class="col-3">
       <a href="/events">More Events</a>
-  </div>
-</main>
+</div>
+

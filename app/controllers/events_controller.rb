@@ -12,43 +12,66 @@ class EventsController < ApplicationController
 
 	post '/events' do # create and save new event to database
 		existing_event = Event.find_by(:title => params[:event][:title], :location => params[:event][:location], :event_date => params[:event][:event_date])
-		if Event.all.include?(existing_event) == true
-			#create error display page for duplicate events
-			erb :'events/error'
-		elsif existing_event == nil
-			@event = Event.new(:title => params[:event][:title], :location => params[:event][:location], :event_date => params[:event][:event_date], :start_time => params[:event][:start_time], :end_time => params[:event][:end_time], :description => params[:event][:description])
+		@event = Event.new(:title => params[:event][:title], :location => params[:event][:location], :event_date => params[:event][:event_date], :start_time => params[:event][:start_time], :end_time => params[:event][:end_time], :description => params[:event][:description], :creator_id => session[:id])
+		@user = User.find_by(:id => session[:id])
+
+		if existing_event.nil? && @event.valid?
+			binding.pry
 			user = User.find_by(:id => session[:id])
-			@event.user_id = user.id
+			@event.creator_id = user.id
 			@event.save
 			@events = Event.all
 			redirect to "/events/#{@event.id}"
+		elsif Event.all.include?(existing_event) == true
+			#create error display page for duplicate events
+			erb :'events/error'
+		else
+			redirect to "/events/new"
 		end
 	end
 
-	get '/my-events' do 
+	get '/events/my-events' do 
 		# renders page with events created by current user
 		@user = User.find_by(:id => session[:id])
 		@events = Event.all
-		erb :'events/my-events'
+		if !@user.created_events.empty?
+		  erb :'events/my-events'
+		else	
+		  redirect to "/events"
+		end
 	end
 
 	get '/events/:id' do #get method renders event show page
 		@event = Event.find_by(:id => params[:id].to_i)
 		@user = User.find_by(:id => session[:id])
-		@creator = User.find_by(:id => @event.user_id)
+		@creator = User.find_by(:id => @event.creator_id)
+
+		@rsvps = Rsvp.all
+		@total_attending = []
+		@new_rsvp = Rsvp.find_by(:user_id => @user.id, :event_id => @event.id)
 		erb :'events/show'
 	end
 
-	get "/events/:id/edit" do
+	get '/events/:id/edit' do
 		@event = Event.find_by(:id => params["id"].to_i)
-		erb :'events/edit'
+		binding.pry
+		if @event.user_id == session[:id]
+			erb :'events/edit'
+		else
+			redirect to "/events/#{@event.id}"
+		end	
 	end
  	
-	patch "/events/:id" do #edit an event
+	patch '/events/:id' do #edit an event
 		@event = Event.find_by_id(params[:id])
-		@event.update(params[:event])
-		@event.save
-		redirect to "/events/#{@event.id}"
+		@user = User.find_by(:id => session[:id])
+		if @event.valid? && @user
+			@event.update(params[:event])
+			@event.save
+			redirect to "/events/#{@event.id}"
+		else
+			"See other events"
+		end
 	end
 
 	delete '/events/:id/delete' do #delete event created by user

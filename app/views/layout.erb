@@ -22,20 +22,21 @@
           <% @user = User.find_by(:id => session[:id]) %>
           <% if @user %>
             <ul>
-              <li class="nav-item"><a href="/my-events">My Created Events</a></li>
+              <li class="nav-item"><a href="/events/my-events">My Created Events</a></li>
               <li class="nav-item"><a href="/rsvps">RSVP List</a></li>
               <li class="nav-item"><a href="/logout">Logout</a></li>
             <% else %>
               <li class="nav-item"><a href="../registrations/new">Sign Up</a></li>
             </ul>
           <% end %>
+          </div>
         </div>
-        
+      </div>
      </header>
-     <main>
+   
         <%= yield %>
-     </main>
-     </div>
+
+     
       <footer>
         <small>&copy; 2019 <strong>FACTivity</strong></small>
       </footer>
