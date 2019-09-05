@@ -2,12 +2,20 @@ class EventsController < ApplicationController
 
 	get '/events' do 
 		# renders page with upcoming events
-		@events = Event.all
-		erb :'events/index'
+		if !logged_in?
+      	  redirect to '/'
+    	else 
+    	  @events = Event.all
+		  erb :'events/index'
+   	    end
 	end
 
 	get '/events/new' do #render new event page
-		erb :'events/new'
+		if !logged_in?
+      	  redirect to '/'
+    	else 
+		  erb :'events/new'
+		end
 	end
 
 	post '/events' do # create and save new event to database
