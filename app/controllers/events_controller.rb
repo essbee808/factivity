@@ -32,7 +32,6 @@ class EventsController < ApplicationController
 	get '/events/my-events' do 
 		# renders page with events created by current user
 		@user = User.find_by(:id => session[:id])
-		binding.pry
 		if !@user.created_events.empty?
 		  erb :'events/my-events'
 		else	
@@ -43,7 +42,6 @@ class EventsController < ApplicationController
 	get '/events/:id' do #get method renders event show page
 		@event = Event.find_by(:id => params[:id].to_i)
 		@user = User.find_by(:id => session[:id])
-		@creator = User.find_by(:id => @event.creator_id)
 
 		@rsvps = Rsvp.all
 		@total_attending = []

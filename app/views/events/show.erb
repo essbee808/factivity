@@ -6,7 +6,7 @@
           <% if @event.creator_id == session[:id] %>
             Submitted by Me
           <% else %>
-            Submitted by <%= @creator.name %>
+            Submitted by <%= @event.creator.name %>
           <% end %>
       </p>
     <div class="event-details">
