@@ -22,9 +22,8 @@ class UsersController < ApplicationController
   post '/registrations' do # collects login info
      #persist to database if user email does not exist
      existing_user = User.find_by(:email => params[:user][:email])
-     @new_user = User.new(:email => params[:user][:email], :password => params[:user][:password_digest], :name => params[:user][:name])
-     
-      if existing_user == nil && @new_user.valid?
+     @new_user = User.new(:email => params[:user][:email], :password => params[:user][:password], :name => params[:user][:name])
+      if existing_user.nil? && @new_user.valid?
         @new_user.save
         session[:id] = @new_user.id
         redirect "/"

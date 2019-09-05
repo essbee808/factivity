@@ -23,7 +23,6 @@ class RsvpsController < ApplicationController
 		end
 	end
 
-	
 	delete '/rsvp/:id' do
 		@user = User.find_by("id" => session[:id])
 		@event = Event.find_by("id" => params[:id])
