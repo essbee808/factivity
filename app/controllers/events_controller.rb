@@ -39,31 +39,36 @@ class EventsController < ApplicationController
 
 	get '/events/my-events' do 
 		# renders page with events created by current user
-		@user = User.find_by(:id => session[:id])
-		if !@user.created_events.empty?
+		if !logged_in?
+		  redirect to '/'
+		else
+		  current_user 
 		  erb :'events/my-events'
-		else	
-		  redirect to "/events"
 		end
 	end
 
 	get '/events/:id' do #get method renders event show page
 		@event = Event.find_by(:id => params[:id].to_i)
 		@user = User.find_by(:id => session[:id])
-
 		@rsvps = Rsvp.all
 		@total_attending = []
 		@new_rsvp = Rsvp.find_by(:user_id => @user.id, :event_id => @event.id)
-		erb :'events/show'
+		if @event
+			erb :'events/show'
+		else
+			redirect to '/events'
+		end
 	end
 
 	get '/events/:id/edit' do
-		@event = Event.find_by(:id => params["id"].to_i)
-		if @event.creator_id == session[:id]
-			erb :'events/edit'
-		else
+		@event = Event.find_by(:id => params[:id].to_i)
+		if !current_user
+			redirect to '/'
+		elsif current_user.created_events.find_by(:id => @event.id) == nil
 			redirect to "/events/#{@event.id}"
-		end	
+		else
+			erb :'events/edit'
+		end
 	end
  	
 	patch '/events/:id' do #edit an event
@@ -79,10 +84,12 @@ class EventsController < ApplicationController
 	delete '/events/:id/delete' do #delete event created by user
 		# user is only able to delete event from event list if user matches creator id
 		@event = Event.find_by_id(params[:id])
-		@all_rsvp = Rsvp.all 
-		@all_rsvp.each do |el|
-			if el.event_id == @event.id
+		if current_user.created_events.find_by(:id => @event.id)
+			@all_rsvp = Rsvp.all 
+			@all_rsvp.each do |el|
+				if el.event_id == @event.id
 				Rsvp.destroy(el)
+				end
 			end
 		end
 		Event.destroy(@event)
