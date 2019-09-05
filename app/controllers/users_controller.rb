@@ -42,7 +42,11 @@ class UsersController < ApplicationController
   end
 
   get '/failure' do
-    erb :'users/registrations/error'
+    if logged_in?
+      redirect to '/'
+    else
+      erb :'users/registrations/error'
+    end
   end
 
   get '/logout' do

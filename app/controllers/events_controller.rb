@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
 	get '/events' do 
-		# renders page with upcoming events
+		#renders page with upcoming events
 		if !logged_in?
       	  redirect to '/'
     	else 
@@ -101,4 +101,5 @@ class EventsController < ApplicationController
 		@events = Event.all
 		redirect to '/events'
 	end
+
 end
