@@ -6,11 +6,11 @@ class UsersController < ApplicationController
   #login(params[:email], params[:password])
   @user = User.find_by("id" => session[:id])
   erb :'index'
-  # if @user != nil
-  #   erb :'users/show'
-  # else
-  #   erb :'index'
-  # end
+  if @user != nil
+    erb :'users/show'
+  else
+    erb :'index'
+  end
  end
 
   get '/registrations/new' do 
