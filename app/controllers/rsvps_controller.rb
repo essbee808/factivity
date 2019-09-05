@@ -2,10 +2,12 @@ class RsvpsController < ApplicationController
 
 	get '/rsvps' do #renders all events
 		@user = User.find_by(:id => session[:id])
-		if !@user.rsvps.empty?
-			erb :'rsvps/show'
-		else
+		if !logged_in?
+			redirect to '/'
+		elsif @user.rsvps.empty?
 			erb :'rsvps/error'
+		else
+			erb :'rsvps/show'
 		end
 	end
 

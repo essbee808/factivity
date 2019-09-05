@@ -51,11 +51,11 @@ class EventsController < ApplicationController
 		#binding.pry
 		@event = Event.find_by(:id => params[:id].to_i)
 		current_user
-
-		if !logged_in? 
+		if !logged_in? #not logged in
 		  redirect to '/'
-		elsif (logged_in? && @event.nil?) || @event.nil?
-		  redirect to "/events"
+		  #if logged in but event doesn't exists
+		elsif logged_in? && @event.nil?
+		 redirect to "/events"
 		else 
 		  @rsvps = Rsvp.all
 		  @rsvp = Rsvp.find_by(:user_id => current_user.id, :event_id => @event.id) 
@@ -65,11 +65,12 @@ class EventsController < ApplicationController
 
 	get '/events/:id/edit' do
 		@event = Event.find_by(:id => params[:id].to_i)
-			
 		  if !logged_in?
 			redirect to '/'
 		  elsif current_user.created_events.find_by(:id => @event.id)
 			erb :'events/edit'
+		  elsif !current_user.created_events.include?(:id => @event.id)
+		  	redirect to '/events/:id'
 		  else
 			redirect to "/events"
 		  end

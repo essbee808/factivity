@@ -53,7 +53,7 @@
     </div>
     <!-- if user created this event -->
     <div class="modify-event">
-    <% if @event.creator_id == session[:id] %>
+    <% if @event.creator_id == current_user.id %>
       <form action="/events/<%= @event.id %>/edit" method="GET">
         <input type="submit" value="Edit Details" class="submit">
       </form>
