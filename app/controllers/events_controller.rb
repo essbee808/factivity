@@ -33,7 +33,6 @@ class EventsController < ApplicationController
 	get '/events/my-events' do 
 		# renders page with events created by current user
 		@user = User.find_by(:id => session[:id])
-		@events = Event.all
 		if !@user.created_events.empty?
 		  erb :'events/my-events'
 		else	
@@ -54,8 +53,7 @@ class EventsController < ApplicationController
 
 	get '/events/:id/edit' do
 		@event = Event.find_by(:id => params["id"].to_i)
-		binding.pry
-		if @event.user_id == session[:id]
+		if @event.creator_id == session[:id]
 			erb :'events/edit'
 		else
 			redirect to "/events/#{@event.id}"
@@ -68,10 +66,8 @@ class EventsController < ApplicationController
 		if @event.valid? && @user
 			@event.update(params[:event])
 			@event.save
-			redirect to "/events/#{@event.id}"
-		else
-			"See other events"
 		end
+		redirect to "/events/#{@event.id}"
 	end
 
 	delete '/events/:id/delete' do #delete event created by user

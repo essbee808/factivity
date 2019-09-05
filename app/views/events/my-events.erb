@@ -2,7 +2,6 @@
 	<h2 class="title">My Created Events</h2>
 		<p class="sub"><a href="/events/new">New Event</a><br></p>
 	<div class="list">
-		<% binding.pry %>
 		<% @user.created_events do |el| %>
 			   <ul>
 			   	<li class="item"><a href="/events/<%= el.id %>"><%= el.title %></a></li><br>
